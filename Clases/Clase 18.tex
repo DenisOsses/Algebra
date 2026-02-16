@@ -1,0 +1,270 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 18}
+\subtitle{Vectores en coordenadas. Norma}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{16 de mayo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Representar algebraicamente vectores y sus operaciones.
+    \item Aplicar las propiedades fundamentales de las operaciones de vectores para la resolución de problemas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Vectores en coordenadas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición. Puntos en el plano}
+\justifying
+Cualquier punto $P$ en el plano puede localizarce por un único par ordenado $(a,b)$ \pause 
+\begin{center}
+    \visible<2-4>{\includegraphics[scale=0.06]{GeomVect1.png}}
+\end{center}
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.4cm}
+\begin{block}{Definición}
+\justifying
+La \textbf{distancia entre los puntos} $P_1(x_1,y_1)$ y $P_2(x_2,y_2)$ es $$d(P_2,P_1)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}.$$ \pause 
+\vspace{-0.3cm}
+\begin{center}
+    \visible<4>{ \includegraphics[scale=0.5]{GeomVect2.png}}
+\end{center}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+
+
+%---------------------------------------------------------------------
+%\subsection{Vectores en Coordenadas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.3cm}
+\begin{block}{Definición. Puntos en el espacio}
+\justifying
+Cualquier punto $P$ en el espacio puede localizarce por un único trío de números $(a,b,c)$ \pause 
+\begin{center}
+   \visible<2-6>{\includegraphics[scale=0.45]{GeomVect3.png}}
+\end{center} \pause 
+\end{block}
+\begin{exampleblock}{Ejemplo 1}
+Localice los puntos $(2,4,7)$ y $(-4,3,-5)$.
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-1cm}
+\begin{center}
+   \visible<4-6>{\includegraphics[scale=0.28]{GeomVect4.png}}
+\end{center} \pause 
+\vspace{-0.5cm}
+\begin{block}{Definición}
+\justifying
+La \textbf{distancia entre los puntos del espacio} $P(x_1,y_1,z_1)$ y $Q(x_2,y_2,z_2)$ es $$d(Q,P)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.$$ \pause 
+\vspace{-0.8cm}
+\begin{center}
+    \visible<6>{\includegraphics[scale=0.3]{GeomVect5.png}}
+\end{center}
+\vspace{-0.3cm}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Adición, ponderación y magnitud en coordenadas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+\begin{block}{Definición}
+\justifying
+Todos los puntos $P(a,b)$ del plano y $P(a,b,c)$ del espacio tienen asociado un vector posición $$\vec{p}=(a,b)~~\text{o}~~\vec{p}=(a,b,c)$$ \pause que corresponde a las \textbf{coordenadas} de dicho vector. \pause Esto es así porque podemos mirar todos los puntos $P$ desde el origen $O$ y asociarles su vector posición $\overrightarrow{OP}=\vec{p}$. 
+\end{block} \pause 
+
+\begin{block}{Definición}
+\justifying
+Sean $\vec{p_1}=(a_1,b_1,c_1)$ o $\vec{p_2}=(a_2,b_2,c_2)$ vectores del espacio. La \textbf{adición} de $\vec{p_1}$ y $\vec{p_2}$ en coordenadas es $$\vec{p_1}+\vec{p_2}=(a_1+a_2,b_1+b_2,c_1+c_2).$$ 
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición}
+\justifying
+La \textbf{ponderación} del vector $\vec{p}=(a,b,c)$ por el escalar $\alpha\in\mathbb{R}$ en coordenadas es $$\alpha\vec{p}=\alpha(a,b,c)=(\alpha a,\alpha b,\alpha c).$$
+\end{block} \pause 
+
+\begin{block}{Definición}
+\justifying
+El \textbf{módulo} o \textbf{norma} del vector $\vec{p}=(a,b,c)$ es $$||\vec{p}||=\sqrt{a^2+b^2+c^2}.$$
+\end{block}
+\end{minipage}
+
+
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Distancia}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Propiedad}
+\justifying
+Si $\vec{u}$ es un vector en el plano o el espacio y $\alpha\in\mathbb{R}$, entonces: $$||\alpha\vec{u}||=|\alpha|\cdot||\vec{u}||.$$ 
+\end{block}\pause
+
+\begin{block}{Definición}
+\justifying
+Si $A$ y $B$ son puntos del plano o el espacio, y $\vec{a}$, $\vec{b}$ son sus vectores posición asociados entonces: $$d(A,B)=||\overrightarrow{AB}||=||\vec{b}-\vec{a}||$$ \pause  es la \textbf{distancia} entre $A$ y $B$, o la norma del vector $\overrightarrow{AB}$. 
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{1.5cm}
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Obtener las coordenadas del vector $\overrightarrow{AB}$ determinado por un punto inicial $A(3,2)$ y un punto final $B(-5,1)$. ¿Cuáles son las coordenadas del punto $D$ si $\overrightarrow{CD}=\overrightarrow{AB}$ con $C(-4,7)$?
+\end{exampleblock}
+\end{minipage}
+
+
+\end{frame}
+
+
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item La definiciones para vectores en $\mathbb{R}^3$ y $\mathbb{R}^2$ son análogas. En $\mathbb{R}^3$, basta con anular la tercera coordenada en las expresiones anteriores para obtener las definiciones en $\mathbb{R}^2$.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

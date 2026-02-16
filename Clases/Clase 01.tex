@@ -1,0 +1,423 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 1}
+\subtitle{Proposiciones y conectivos lógicos}
+\author{Profesor: Denis Osses}
+% \date{\AdvanceDate[+1]\today}
+\date{7 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Introducir los conceptos básicos de la lógica proposicional.
+    \item Determinar el valor de verdad de proposiciones.
+    % \item Demostrar equivalencias lógicas de proposiciones.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+\subsection{Lógica proposicional}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+La lógica es la ciencia formal que estudia los principios de la demostración y nos ayuda a discernir entre \textbf{proposiciones} válidas mediante inferencias o deducciones. \pause
+  
+  \begin{block}{Definición}
+  \justifying
+    Las \textbf{proposiciones} son enunciados o frases del lenguaje natural sobre las cuales es posible afirmar su veracidad $(V)$ o falsedad $(F)$. Usualmente se denotan con letras minúsculas $p,q,r,s,t,\ldots$
+  \end{block}\pause
+  
+    \begin{exampleblock}{Ejemplo 1}
+    Determine si los siguientes enunciados son proposiciones o no: \pause
+    \begin{enumerate}
+        \item Dos es mayor que cinco.
+        \item Hola.
+        \vspace{-0.1cm}
+    \end{enumerate}
+    \end{exampleblock}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-1.5cm}
+\begin{block}{Definición}
+  \justifying
+    La veracidad o falsedad de una proposición se denomina \textbf{valor de verdad} de tal proposición.
+  \end{block}\pause
+
+  \vspace{-0.2cm}
+  \begin{exampleblock}{Ejemplo 2}
+    Determine el valor de verdad de las siguentes proposiciones:\pause
+    \begin{enumerate}
+        \item $2+3=5$.
+        \item Hoy es 6 de marzo.
+        \vspace{-0.1cm}
+    \end{enumerate}
+    \end{exampleblock}\pause
+
+    \vspace{-0.2cm}
+    \begin{block}{Nota}
+    \justifying
+    La negación de una proposición asocia a toda proposición $p$ una proposición denotada $\neg p$, verdadera si $p$ es falsa y falsa si $p$ es verdadera. 
+  \end{block}\pause
+
+  \vspace{-0.2cm}
+  \begin{exampleblock}{Ejemplo 3}
+    Escriba la negación de las proposiciones del ejemplo 2.
+    \end{exampleblock}
+\end{minipage}
+  
+    
+  
+\end{frame}
+
+%-------------------------------------------------------------------------
+
+\subsection{Tablas de Verdad}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+    \textbf{Pregunta}: Suponga que conoce los valores de verdad de las proposiciones $p$ y $q$. ?`Es posible determinar el valor de verdad de sus proposiciones compuestas asociadas? \pause Para el caso de dos proposiciones $p$ y $q$ existen cuatro formas de combinar sus valores de verdad, los que se han colocado en la siguiente tabla (tabla de verdad): \pause 
+
+    $$\begin{tabular}{|c|c|c|}
+    \hline
+    $p$& $q$& $p\ast q$ \\
+     \hline
+     $V$& $V$& $?$\\
+     $V$& $F$& $?$\\
+     $F$& $V$& $?$\\
+     $F$& $F$& $?$\\
+     \hline
+    \end{tabular}$$
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+    Al fijar una sucesión de los cuatro valores $(????)$ correspondientes a $p\ast q$, se obtiene exactamente el significado lógico del \textbf{conector} $\ast$. \pause Cada sucesión de valores se llama una \textbf{evaluación} de $\ast$, así se tiene que: toda evaluación determina un conectivo lógico. \pause 
+    
+    \vspace{0.2cm}
+  
+   De esta manera para dos proposiciones $p$ y $q$ existen $2^4 = 16$ conectivos lógicos, los cuales quedarán definidos mediante su evaluación. Algunos de ellos son los más utilizados en el lenguaje natural y en el matemático, y los llamaremos \textbf{conectivos lógicos} usuales.
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+
+\subsection{Conectivos Lógicos}
+\begin{frame}
+\frametitle{\insertsectionhead}
+\framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+    \begin{block}{Definición}
+    La \textbf{conjunción} es el conectivo lógico \textbf{y}, notado con el símbolo $\wedge$ y definido por:\pause 
+    $$\begin{tabular}{|c|c|c|}
+    \hline
+     $p$& $q$& $p\wedge q$ \\
+     \hline
+     $V$& $V$& $V$\\
+     $V$& $F$& $F$\\
+     $F$& $V$& $F$\\
+     $F$& $F$& $F$\\
+     \hline
+\end{tabular}$$
+  \end{block}\pause
+
+Se lee $``p$ y $q"$.
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+ \begin{block}{Definición}
+   La \textbf{disyunción} es el conectivo lógico \textbf{o}, notado con el símbolo $\vee$ y definido por:\pause 
+   $$\begin{tabular}{|c|c|c|}
+    \hline
+     $p$& $q$& $p\vee q$ \\
+     \hline
+     $V$& $V$& $V$\\
+     $V$& $F$& $V$\\
+     $F$& $V$& $V$\\
+     $F$& $F$& $F$\\
+     \hline
+\end{tabular}$$
+  \end{block}\pause 
+
+Se lee $``p$ o $q"$.
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+
+%\subsection{Conectivos Lógicos}
+\begin{frame}
+\frametitle{\insertsectionhead}
+\framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+    \begin{block}{Definición}
+    \justifying
+   La \textbf{implicación} es el conectivo lógico \textbf{si...entonces}, notado con el símbolo $\Rightarrow$ y definido por:\pause
+$$\begin{tabular}{|c|c|c|}
+    \hline
+     $p$& $q$& $p\Rightarrow q$ \\
+     \hline
+     $V$& $V$& $V$\\
+     $V$& $F$& $F$\\
+     $F$& $V$& $V$\\
+     $F$& $F$& $V$\\
+     \hline
+\end{tabular}$$
+  \end{block}\pause
+
+Se lee $``$si $p$ entonces $q"$ o ``$p$ implica $q"$.
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\begin{block}{Definición}
+    \justifying
+    La \textbf{doble implicación} es el conectivo lógico \textbf{si y solo si}, notado con el símbolo $\Leftrightarrow$ y definido por:\pause
+$$\begin{tabular}{|c|c|c|}
+    \hline
+     $p$& $q$& $p\Leftrightarrow q$ \\
+     \hline
+     $V$& $V$& $V$\\
+     $V$& $F$& $F$\\
+     $F$& $V$& $F$\\
+     $F$& $F$& $V$\\
+     \hline
+\end{tabular}$$
+  \end{block}\pause
+
+Se lee $``p$ si y solo si $q"$ o $``p$ es equivalente a $q"$.
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+
+%\subsection{Conectivos Lógicos}
+\begin{frame}
+\frametitle{\insertsectionhead}
+\framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+    \begin{exampleblock}{Ejemplo 4}
+    \justifying
+    Determinar el valor de verdad de cada una de las siguientes proposiciones:
+    \begin{enumerate}
+        \item Si $3<5$ entonces $-3<-5$.
+        \item $\sqrt{16}=4$ o $\sqrt{16}=-4$.
+        \item $6+4=10$ y $\sqrt{2}\cdot\sqrt{2}=2$.
+        \item $5^2=25~$ o $~2+2=5$.
+    \end{enumerate}
+    \end{exampleblock}  \pause
+
+    \begin{exampleblock}{Ejemplo 5}
+    \justifying
+    Pruebe que $(p\Rightarrow q)\Leftrightarrow(\neg p\vee q)$ es una proposición siempre verdadera.
+    \end{exampleblock}
+
+\end{minipage} \pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+    \begin{alertblock}{\color{red}{Ejercicio propuesto}}
+    \justifying
+    Pruebe que $(p\Rightarrow q)\Leftrightarrow(\neg q\Rightarrow\neg p)$ es una proposición siempre verdadera.
+    \end{alertblock}
+\end{minipage}
+
+\end{frame}
+
+% %-------------------------------------------------------------------------
+% \subsection{Equivalencias lógicas}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%     \begin{block}{Definición}\pause
+%     Dos proposiciones compuestas $m$ y $n$ son \textbf{equivalentes} si entregan el mismo valor de verdad para todo valor de verdad de $m$ y $n$. Escribimos $m\equiv n$ para indicar esto. 
+%     \end{block}  \pause
+    
+%     De este modo, del ejemplo 5 tenemos que $p\Rightarrow q\equiv \neg q\Rightarrow\neg p.$
+    
+%     \begin{exampleblock}{Ejemplo 6}\pause
+%     Pruebe que $p\Rightarrow q\equiv \neg p\vee q$.
+%     \end{exampleblock}
+
+% \end{frame}
+
+% %-------------------------------------------------------------------------
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+%     \begin{block}{Definición}\pause
+%     Algunas equivalencias lógicas usuales son\pause
+%     \begin{enumerate}[<+->]
+%     \item $\neg(\neg p)\equiv p$.
+%     \item $\neg(p\vee q)\equiv \neg p\wedge \neg q$.
+%     \item $\neg(p\wedge q)\equiv \neg p\vee \neg q$.
+%     \item $p\Rightarrow q\equiv \neg p\vee q$.
+%     \item $p\Rightarrow q\equiv \neg q\Rightarrow \neg p$.
+%     \item $p\Leftrightarrow q\equiv (p\Rightarrow q)\wedge(q\Rightarrow p)$.
+%     \end{enumerate}
+%     \end{block}\pause 
+    
+%     \begin{exampleblock}{Ejemplo 7}\pause
+%     ?`Es cierto que $p\Rightarrow q\equiv q\Rightarrow p$?
+%     \end{exampleblock}
+
+% \end{frame}
+
+% %-------------------------------------------------------------------------
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+    
+%     \begin{alertblock}{\color{red}{Ejercicio propuesto}}\pause
+%     Considere el conectivo $\ast$ definido por $$\begin{tabular}{|c|c|c|}
+%     \hline
+%      $p$& $q$& $p\ast q$ \\
+%      \hline
+%      $V$& $V$& $F$\\
+%      $V$& $F$& $V$\\
+%      $F$& $V$& $F$\\
+%      $F$& $F$& $F$\\
+%      \hline
+%      \end{tabular}$$
+
+% Determine una proposición compuesta, lógicamente equivalente a $p\ast q$, que solo contenga los conectivos $\neg$ y $\wedge$. ?`Será verdad que $p\ast q\equiv q\ast p$?
+%     \end{alertblock}
+
+% \end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Las proposiciones que estudiaremos en este curso son de carácter netamente matemático.
+%       \item Los cuatros conectivos lógicos estudiados hoy son los usuales entre dos proposiciones, pero se pueden definir 16 en total.
+%       \item En general todos los conectivos se pueden definir en términos de $\neg$, $\wedge$ y $\vee$. Se recomienda escribir $\Rightarrow$ y $\Leftrightarrow$ usándolos.
+%       % \item Una equivalencia lógica se puede interpretar como una ``traducción'' de una proposición en otra.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

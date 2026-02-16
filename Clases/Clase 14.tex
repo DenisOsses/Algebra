@@ -1,0 +1,261 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 14}
+\subtitle{Identidades trigonométricas}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{28 de abril de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Demostrar identidades trigonométricas
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Suma y resta de ángulos. Ángulo Doble}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{block}{Teorema}
+\justifying
+Si $\alpha$ es un ángulo cualquiera de un triángulo, entonces \pause $$\sen^2(\alpha)+\cos^2(\alpha)=1$$
+\end{block}
+
+\begin{block}{Teorema}
+\justifying
+Si $\alpha$ y $\beta$ son dos ángulos cualesquiera de un triángulo, entonces \pause
+\vspace{0.2cm}
+\begin{center}
+    \begin{tabular}{ccc}
+         $\sen(\alpha\pm\beta)$ & $=$ & $\sen(\alpha)\cos(\beta)\pm\sen(\beta)\cos(\alpha)$ \pause\\
+         $\cos(\alpha\pm\beta)$ & $=$ & $\cos(\alpha)\cos(\beta)\mp\sen(\alpha)\sen(\beta)$ \pause\\
+         $\tan(\alpha\pm\beta)$ & $=$ & $\dfrac{\tan(\alpha)\pm\tan(\beta)}{1\mp\tan(\alpha)\tan(\beta)}$
+    \end{tabular}
+\end{center}
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+\begin{block}{Teorema}
+\justifying
+Si $\alpha$ es un ángulo cualquiera de un triángulo, entonces \pause
+\vspace{0.2cm}
+\begin{center}
+    \begin{tabular}{ccc}
+         $\sen(2\alpha)$ & $=$ & $2\sen(\alpha)\cos(\alpha)$ \pause\\
+         $\cos(2\alpha)$ & $=$ & $\cos^2(\alpha)-\sen^2(\alpha)$ \pause\\
+         $\cos(2\alpha)$ & $=$ & $1-2\sen^2(\alpha)$ \pause\\
+         $\cos(2\alpha)$ & $=$ & $2\cos^2(\alpha)-1$ \pause\\
+         $\tan(2\alpha)$ & $=$ & $\dfrac{2\tan(\alpha)}{1-\tan^2(\alpha)}$
+    \end{tabular}
+\end{center}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Ángulo medio. Suma en producto}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.45\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{block}{Teorema}
+\justifying
+Si $\alpha$ es un ángulo cualquiera de un triángulo, entonces \pause
+\vspace{0.2cm}
+\begin{center}
+    \begin{tabular}{ccc}
+         $\sen\left(\dfrac{\alpha}{2}\right)$ & $=$ & $\pm\sqrt{\dfrac{1-\cos(\alpha)}{2}}$ \pause\\
+         $\cos\left(\dfrac{\alpha}{2}\right)$ & $=$ & $\pm\sqrt{\dfrac{1+\cos(\alpha)}{2}}$ \pause\\
+         $\tan\left(\dfrac{\alpha}{2}\right)$ & $=$ & $\pm\sqrt{\dfrac{1-\cos(\alpha)}{1+\cos(\alpha)}}$ 
+    \end{tabular}
+\end{center}
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.55\linewidth}
+\justifying
+\vspace{-0.2cm}
+\begin{block}{Teorema}
+\justifying
+Si $\alpha$ y $\beta$ son dos ángulos cualesquiera de un triángulo, entonces \pause
+\begin{center}
+    \begin{tabular}{ccc}
+         $\sen(\alpha)+\sen(\beta)$ & $=$ & $2\sen\left(\dfrac{\alpha+\beta}{2}\right)\cos\left(\dfrac{\alpha-\beta}{2}\right)$ \pause\\
+         $\sen(\alpha)-\sen(\beta)$ & $=$ & $2\cos\left(\dfrac{\alpha+\beta}{2}\right)\sen\left(\dfrac{\alpha-\beta}{2}\right)$ \pause\\
+         $\cos(\alpha)+\cos(\beta)$ & $=$ & $2\cos\left(\dfrac{\alpha+\beta}{2}\right)\cos\left(\dfrac{\alpha-\beta}{2}\right)$ \pause\\
+         $\cos(\alpha)-\cos(\beta)$ & $=$ & $-2\sen\left(\dfrac{\alpha+\beta}{2}\right)\sen\left(\dfrac{\alpha-\beta}{2}\right)$
+    \end{tabular}
+\end{center}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Producto en suma}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{block}{Teorema}
+\justifying
+Si $\alpha$ y $\beta$ son dos ángulos cualesquiera de un triángulo, entonces \pause
+\vspace{0.2cm}
+\begin{center}
+    \begin{tabular}{ccc}
+         $\sen(\alpha)\cos(\beta)$ & $=$ & $\frac{1}{2}\big[\sen(\alpha+\beta)+\sen(\alpha-\beta)\big]$ \pause\\
+         $\cos(\alpha)\cos(\beta)$ & $=$ & $\frac{1}{2}\big[\cos(\alpha+\beta)+\cos(\alpha-\beta)\big]$ \pause\\
+         $\sen(\alpha)\sen(\beta)$ & $=$ & $\frac{1}{2}\big[\cos(\alpha-\beta)-\cos(\alpha+\beta)\big]$
+    \end{tabular}
+\end{center}
+\end{block}
+\end{minipage}\pause
+\hspace{0.35cm}\begin{minipage}[t]{0.51\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{exampleblock}{Ejemplo}
+\justifying
+Probar las siguientes identidades: \pause
+\vspace{0.2cm}
+\begin{enumerate}[<+->]
+    \item $2\cot^2(\alpha)+1=\csc^4(\alpha)-\cot^4(\alpha)$.
+    \item $\left(\cos\left(\dfrac{\beta}{2}\right)-\sen\left(\dfrac{\beta}{2}\right)\right)^2=1-\sen(\beta)$
+    \item Si $\alpha+\beta+\gamma=\pi$ entonces $$\hspace{-0.8cm}\sen(\alpha)+\sen(\beta)+\sen(\gamma)=4\cos\left(\dfrac{\alpha}{2}\right)\cos\left(\dfrac{\beta}{2}\right)\cos\left(\dfrac{\gamma}{2}\right)$$
+\end{enumerate}
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Todas las definiciones e identidades vistas en clases anteriores, son válidas para las identidades trigonométricas generales.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

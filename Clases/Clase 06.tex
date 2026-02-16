@@ -1,0 +1,228 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 6}
+\subtitle{Métodos de demostración}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+3]\today}
+%\date{\today}
+\date{19 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Demostrar propiedades de números y conjuntos.
+    \item Demostrar propiedades de los números reales.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Demostración directa}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+Un \textbf{Teorema} es una proposición cuya verdad debe demostrarse. En matemáticas, corresponde a toda proposición que, partiendo de supuestos o \textbf{hipótesis}, produce una afirmación no evidente por sí misma o \textbf{tesis}.\pause
+
+\hspace{0.1cm}
+
+Los teoremas se deben demostrar mediante razonamientos lógicos. El proceso de razonar lógicamente y deducir proposiciones, propiedades o teoremas, se puede sistematizar mediante los denominados \textbf{métodos de demostración}. Estudiaremos 4 de ellos:\pause
+
+ \begin{block}{Demostración directa}
+\justifying
+Supongamos que una proposición es de la forma $p\Rightarrow q$. Una \textbf{demostración directa} de ella es suponer $p$ verdadera y, a partir de deducciones lógicas, probar $q$. 
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Demuestre que $\forall~n\in\mathbb{Z}: n~\textrm{es impar}\Rightarrow n^2~\textrm{es impar}.$
+\end{exampleblock}\pause
+
+\begin{block}{Nota}
+\justifying
+En una proposición de la forma $p\Rightarrow q$, $p$ se denomina \textbf{condición suficiente} (para que ocurra $q$) y $q$ \textbf{condición necesaria} (para que se satisfaga $p$). \pause Por ejemplo si $p:$ llueve y $q:$ la calle se moja, podemos leer $p\Rightarrow q$ como ``si llueve entonces la calle se moja'' que es $V$. Sin embargo, no es necesariamente cierto que si la calle se moja entonces llueve ($q\Rightarrow p$).
+
+% \pause
+
+% Es suficiente que llueva para que la calle se moje, por ejemplo.
+
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Demostración por contrarrecíproco y reducción al absurdo}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+ \begin{block}{Demostración por contrarrecíproco}
+\justifying
+Supongamos que una proposición es de la forma $p\Rightarrow q$. Una \textbf{demostración por contrarrecíproco} de ella se basa en la equivalencia lógica $$p\Rightarrow q\equiv\neg q\Rightarrow\neg p.$$\pause Es decir, probar que $p\Rightarrow q$ es verdadera equivale a demostrar que $\neg q\Rightarrow\neg p$ es también verdadera (lo que se puede hacer de manera directa).
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Demuestre que $\forall~n\in\mathbb{Z}: n^2~\textrm{es par}\Rightarrow n~\textrm{es par}.$
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+ \begin{block}{Demostración por reducción al absurdo}
+\justifying
+Supongamos que queremos demostrar la proposición $p$. \pause En lugar de demostrarla directamente, comenzamos suponiendo que $\neg p$ es verdadera y, a partir de ella, deducimos una contradicción (una proposición siempre falsa). \pause Esta contradicción proviene de suponer que $\neg p\equiv V$, lo que es incorrecto; así que, $\neg p\equiv F$. \pause Esto implica que $p\equiv V$.
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Probar que $\sqrt{2}$ no es racional.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Demostración por casos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+ \begin{block}{Demostración por casos}
+\justifying
+La \textbf{demostración por casos} es un método en el cual la proposición a ser probada se divide en un número finito de casos y cada uno de ellos es demostrado por separado.
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 4}
+\justifying
+Probar que $\forall~x\in\mathbb{R}: x^2\geq0$.
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.51\linewidth}
+\justifying
+\begin{alertblock}{\color{red}{Ejercicio propuesto}}
+\justifying
+Probar que $$\forall~a,b,c\in\mathbb{R^+}: ab(a+b)+bc(b+c)+ca(a+c)\geq6abc$$
+\end{alertblock}
+\end{minipage}
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Las demostraciones son fundamentales para establecer las verdades matemáticas.
+%       \item En cada demostración que realice, es importante identificar el método, hipótesis, tesis, y condiciones necesarias y suficientes (si aplica).
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

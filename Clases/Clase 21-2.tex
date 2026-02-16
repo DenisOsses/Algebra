@@ -1,0 +1,284 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 23}
+\subtitle{Posiciones relativas de rectas. Vector proyección}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{7 de junio de 2024}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Caracterizar la perpendicularidad de rectas en el plano y en el espacio.
+    \item Aplicar las propiedades fundamentales de las operaciones de vectores para la resolución de problemas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+% %---------------------------------------------------------------------
+% \subsection{Paralelismo de rectas}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+% \justifying
+
+% \begin{block}{Definición}
+% \justifying
+% Dos rectas en el espacio (o en el plano) son paralelas si y solo si sus vectores directores son paralelos y dichas rectas no se cortan. \pause Luego, rectas coincidentes no son paralelas.
+% \end{block}\pause
+
+% \begin{exampleblock}{Ejemplo 1}
+% \justifying
+% % Determine, en cada caso, si los tres puntos dados son colineales.
+% Determine si los tres puntos dados son colineales: $P(1, 2,-3), Q(3,-4, 2)$ y $R(1, 1, 2)$
+% % \begin{enumerate}
+% % \item $P(1, 2,-3), Q(3,-4, 2)$ y $R(1, 1, 2)$.
+% % \item $P(1, 2,-3), Q(3,-4, 2)$ y $R(-1, 8,-8)$.
+% % \end{enumerate}
+% \end{exampleblock}\pause
+
+% \begin{exampleblock}{Ejemplo 2}
+% \justifying
+% ¿Es paralela la recta $\displaystyle \frac{x-1}{2}=\frac{y-3}{3}=\frac{z-4}{1}$ con $x=4t, y=6t, z=2t$, $t\in\mathbb{R}$?
+% \end{exampleblock}
+
+% \end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Perpendicularidad de rectas. Vector Proyección}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.3cm}
+\begin{block}{Definición}
+\justifying
+Dos rectas en el espacio (o en el plano) son perpendiculares si y solo si sus vectores directores son perpendiculares y si dichas rectas se cortan en un punto. 
+\end{block}\pause
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+¿Es perpendicular la recta $\displaystyle \vec{r}=(1,0,1)+\lambda(1,2,3)$, $\lambda\in\mathbb{R}$, con $x=1+t, y=t, z=1-4t$, $t\in\mathbb{R}$?
+\end{exampleblock} \pause
+\begin{block}{Definición}
+\justifying
+El vector $\lambda\vec{b}$ se denomina \textbf{vector proyección ortogonal} de $\vec{x}$ sobre $\vec{b}$ y se denota por $P_{\vec{b}}(\vec{x})$.
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\visible<4-5>{\includegraphics[scale=0.4]{Proyeccion1.png}}\pause
+\vspace{0.5cm}
+Los vectores $\vec{b}$ e $\vec{y}$ son ortogonales en el punto $B$. El vector $\overrightarrow{AB}=\lambda\vec{b}$ es un ponderado de $\vec{b}$ (ya que son paralelos).
+\end{minipage}
+
+\end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Perpendicularidad de rectas}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+% \justifying
+
+% \begin{exampleblock}{Ejemplo 3}
+% \justifying
+% Considere las rectas 
+% \begin{eqnarray*}
+% \ell_1 &:& (x, y, z) = (1, 3,-2) + t(4,5,-3),~~t\in\mathbb{R}\\ 
+% \ell_2 &:& \dfrac{x-2}{2}=\dfrac{y+3}{3}=\dfrac{5-z}{2}
+% \end{eqnarray*}
+
+% \begin{enumerate}[(1)]
+% \justifying
+% \item Determine si las rectas $\ell_1$ y $\ell_2$ se intersectan.
+% \item Encuentre una recta $\ell$ que sea paralela a la recta $\ell_1$ y que pase por el punto $(-2, 3, 5)$.
+% \item Determine una recta $\ell$ que sea perpendicular a la recta $\ell_2$ y que pase por el punto $(2, 0, 1)$.
+% \end{enumerate}
+% \end{exampleblock}
+
+% \end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Vector proyección. Propiedades}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+%\vspace{-4cm}
+Notamos que 
+\vspace{-0.2cm}
+$$\lambda\vec{b}+\vec{y}=\vec{x}.$$\pause Como el vector $\vec{y}$ es ortogonal con $\vec{b}$, tenemos que $\vec{y}\cdot\vec{b}=0$. \pause Luego, si a la igualdad anterior le realizamos un producto punto con $\vec{b}$, obtenemos que $$\lambda=\frac{\vec{x}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}=\frac{\vec{x}\cdot\vec{b}}{||\vec{b}||^2}.$$\pause Por lo tanto 
+\vspace{-0.3cm}
+$$\color{red}\boxed{\color{black}P_{\vec{b}}(\vec{x})=\left(\frac{\vec{x}\cdot\vec{b}}{||\vec{b}||^2}\right)\vec{b}}$$ \pause
+\vspace{-0.4cm}
+\begin{block}{Nota}
+\justifying
+El vector $\vec{y}=\vec{x}-P_{\vec{b}}(\vec{x})$ se denomina \textbf{complemento ortogonal} y es muy útil para determinar distancias.
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-1.8cm}
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Si $\vec{u}=(2,4)$ y $\vec{v}=(5,3)$, determine $P_{\vec{v}}(\vec{u})$ y $P_{\vec{u}}(\vec{v})$. Dibuje estos vectores y sus complementos ortogonales.
+\end{exampleblock} \pause
+\vspace{-0.2cm}
+\begin{block}{Propiedades} 
+\justifying
+Si $\displaystyle P_{\vec{b}}(\vec{x})$ denota la proyección ortogonal de $\vec{x}$ sobre $\vec{b}$ entonces: \pause 
+\begin{enumerate}[<+->][{(1)}]
+\item $\displaystyle P_{\vec{b}}(\vec{b})=\vec{b}$.
+\item Si $\vec{a}$ es cualquier vector perpendicular al vector $\vec{b}$ entonces $\displaystyle P_{\vec{b}}(\vec{a})=\vec{0}$.
+\item $\displaystyle P_{\vec{b}}(\lambda\vec{x})=\lambda \displaystyle P_{\vec{b}}(\vec{x})$.
+\item $\displaystyle P_{\vec{b}}(\vec{x}+\vec{y})=\displaystyle P_{\vec{b}}(\vec{x})+\displaystyle P_{\vec{b}}(\vec{y})$
+\end{enumerate}
+\vspace{-0.2cm}
+\end{block}\pause 
+\vspace{-0.2cm}
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Considere la recta $L:\frac{x-1}{2}=y-2=\frac{z-3}{2}.$ Encuentre la ecuación de la recta perpendicular a $L$ que pasa por el punto $(1,2,1)$.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+% %---------------------------------------------------------------------
+% %\subsection{Vector proyección}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+% \justifying
+
+% \begin{exampleblock}{Ejemplo 5}
+% \justifying
+% Considere la recta $$L:\frac{x-1}{2}=y-2=\displaystyle\frac{z-3}{2}.$$ Encuentre la ecuación de la recta perpendicular a $L$ que pasa por el punto $(1,2,1)$.
+% \end{exampleblock}
+
+% % \begin{exampleblock}{Ejemplo 6}
+% % \justifying
+% % Calcule la distancia más corta desde el punto $(2,6)$ a la recta que pasa por el origen y tiene vector director a $\vec{v}=(7,4)$.
+% % \end{exampleblock}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item A veces existen distintas definiciones de perpendicularidad de 2 rectas en el espacio. Acá elegimos la que requiere ortogonalidad de sus vectores directores e intersección entre ellas.
+%       % \item Un excelente ejercicio es realizar el ejemplo 3, parte (3), usando vector proyección y complemento ortogonal.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

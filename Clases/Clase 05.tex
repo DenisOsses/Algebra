@@ -1,0 +1,317 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 5}
+\subtitle{Cuantificadores}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+\date{17 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    %\item Utilizar propiedades de conjuntos en demostraciones.
+    \item Utilizar proposiciones que contienen cuantificadores.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+% %---------------------------------------------------------------------
+% %\subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%  \begin{block}{Definición}\pause
+% \justifying
+% Si $A$ y $B$ son dos subconjuntos de un referencial $E$, entonces la \textbf{unión} $A\cup B$ es el conjunto asociado a la función proposicional: $(x\in A)\vee (x\in B)$ definida en $E$: $$A\cup B=\{x\in E:(x\in A)\vee (x\in B)\}.$$
+% \end{block}\pause 
+
+% \begin{block}{Definición}\pause
+% \justifying
+% Si $A$ y $B$ son dos subconjuntos de un referencial $E$, entonces la \textbf{intersección} $A\cap B$ es el conjunto asociado a la función proposicional: $(x\in A)\wedge (x\in B)$ definida en $E$: $$A\cap B=\{x\in E:(x\in A)\wedge (x\in B)\}.$$
+% \end{block}
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%  \begin{exampleblock}{Ejemplo 1}
+% \justifying
+% Se define la \textbf{diferencia} entre los conjuntos $A$ y $B$ como $$A-B=\{x\in E:x\in A \wedge x\not\in B\}$$ Pruebe que $A-B=A\cap B^c$.
+% \end{exampleblock}\pause
+
+%  \begin{alertblock}{\color{red}{Ejercicio propuesto}}
+% \justifying
+% Demuestre que 
+% \begin{enumerate}
+%     \item $(A^c)^c=A$.
+%     \item $(A\cup B)^c=A^c\cap B^c$.
+%     \item $(A\cap B)^c=A^c\cup B^c$.
+% \end{enumerate}
+% \end{alertblock}
+
+% \end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Cuantificadores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+Dada la función proposicional $p(x)$, sobre el conjunto referencial $\mathbb{N}$, definida por $$p(x) : x ~\text{es múltiplo de}~ 5$$\pause observe que las expresiones: ``Todos los $x\in\mathbb{N}$ son múltiplos de 5'' y ``existe un $x\in\mathbb{N}$ tal que $x$ es múltiplo de 5'', ya no son funciones proposicionales sino proposiciones, debido a que se puede determinar con precisión su valor de verdad.\pause
+
+\hspace{0.1cm}
+
+Partiendo de una función proposicional $p(x)$, se puede obtener una proposición anteponiendo un \textbf{cuantificador}. \pause Los cuantificadores más usados son el \textbf{universal} y el \textbf{existencial}.
+\end{minipage}\pause
+\hspace{0.45cm}\begin{minipage}[t]{0.5\linewidth}
+  \begin{block}{Definición}
+  \justifying
+  Sea $p(x)$ una función proposicional definida sobre un conjunto referencial $E$. \pause Si \underline{para cada valor $a\in E$} se tiene que $p(a)$ es verdadera se escribe $$\forall~x\in E:p(x)$$ y se lee: ``Para todo $x$ en $E$ se verifica $p(x)$'' o ``Cualquiera que sea $x$ en $E$ se verifica $p(x)$''. \pause El símbolo $\forall$, que transforma la función proposicional $p(x)$ en una proposición, se denomina \textbf{cuantificador universal}.
+  \end{block}\pause
+  
+  Esta proposición es verdadera si todos los elementos de $E$ hacen que $p(x)$ sea verdadera.
+\end{minipage}
+
+\end{frame}
+  
+  %---------------------------------------------------------------------
+%\subsection{Cuantificadores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+  \begin{block}{Definición}
+  \justifying
+  Sea $p(x)$ una función proposicional definida sobre un conjunto referencial $E$. \pause Si \underline{para al menos un valor $a\in E$} se tiene que $p(a)$ es verdadera se escribe $$\exists~x\in E:p(x)$$ y se lee: ``Existe un $x$ en $E$ que verifica $p(x)$'' o ``Para algún $x$ en $E$ que verifica $p(x)$''. \pause El símbolo $\exists$, que transforma la función proposicional $p(x)$ en una proposición, se denomina \textbf{cuantificador existencial}.\pause
+
+  \end{block}
+  
+  Esta proposición es verdadera si existe al menos un elemento de $E$ tal que $p(x)$ sea verdadera.
+\end{minipage}\pause
+\hspace{0.45cm}\begin{minipage}[t]{0.5\linewidth}
+  \begin{exampleblock}{Ejemplo 1}
+  \justifying
+    Considere la función proposicional ``$p(x): x$ es positivo''. Analice el valor de verdad de las siguientes proposiciones:
+    \begin{enumerate}
+        \item $\forall~x\in\mathbb{R}:p(x)$.
+        \item $\forall~x\in[1,10]:p(x)$.
+        \item $\exists~x\in\mathbb{R}:p(x)$.
+        \item $\exists~x\in[-10,-1]:p(x)$.
+    \end{enumerate}
+  \end{exampleblock}
+\end{minipage}
+  
+\end{frame}
+
+  %---------------------------------------------------------------------
+\subsection{Negación de cuantificadores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+ \vspace{-0.5cm}
+  \begin{block}{Nota}
+  \justifying
+    La negación de la proposición $\forall~x\in E:p(x)$ es $\exists~x\in E:\neg p(x)$, \pause ya que la negación de la proposición $\forall~x\in E:p(x)$ es ``No es verdad que todos los elementos de $E$ verifiquen $p(x)$''. \pause Esto es equivalente con que ``existe al menos un elemento $a$ en $E$ para el que $p(a)$ es falsa''. \pause Pero si $p(a)$ es falsa entonces $\neg p(a)$ es verdadera; es decir, $\exists~x\in E:\neg(p(x)$. Así tenemos la equivalencia lógica $$\neg\left[\forall~x\in E:p(x)\right]\equiv \exists~x\in E:\neg p(x).$$ \pause Análogamente, podemos probar que $$\neg\left[\exists~x\in E:p(x)\right]\equiv \forall~x\in E:\neg p(x).$$
+  \end{block}
+
+\end{minipage}\pause
+\hspace{0.4cm}  
+\begin{minipage}[t]{0.5\linewidth}
+  \begin{exampleblock}{Ejemplo 2}
+  \justifying
+    Expresar las siguientes proposiciones utilizando símbolos matemáticos y lógicos. Luego escriba su negación.
+    \begin{enumerate}
+    \justifying
+    \item Existe un número entero mayor que dos.
+    \item Todos los números reales son pares.
+    \item Hay números naturales pares que son mayores que cinco.
+    \end{enumerate}
+  \end{exampleblock}
+\end{minipage}
+  
+\end{frame}
+
+  %---------------------------------------------------------------------
+\subsection{Cuantificadores dobles}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+  Cuando las funciones proposicionales dependen de más de una variable los cuantificadores pueden aparecer anidados. Cada vez que se antepone un cuantificador para una variable recorriendo un conjunto de referencia, esa variable desaparece y solo quedan las variables que no han sido cuantificadas. \pause Veamos el siguiente ejemplo. Si escribimos $$\forall~x\in A, \exists~y\in B: p(x,y)$$ puede interpretarse como $$\forall~x\in A: p(x)~,~\text{donde}~~p(x)\equiv \exists~y\in B: p(x,y)$$ \pause Note que al anteponer el cuantificador existencial para la variable $y$, la función proposicional resultante no dependerá de $y$. 
+  \end{minipage} \pause
+\hspace{0.3cm}\begin{minipage}[t]{0.5\linewidth}
+
+Por eso, cuando a esta se le antepone el cuantificador universal para la variable $x$, el resultado es una proposición de la cual se puede determinar su valor de verdad.
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Considere la función proposicional $p(x,y):x-y=0$ y los conjuntos referenciales $A=\{1,2,3\}$ y $B=\{1,2\}$. Determine el valor de verdad de la proposición $\forall~x\in A, \exists~y\in B: p(x,y)$.
+\end{exampleblock}
+\end{minipage}
+  
+\end{frame}
+
+  %---------------------------------------------------------------------
+%\subsection{Cuantificadores dobles}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+
+  \justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+
+\begin{block}{Definición}
+\justifying
+Las opciones de dobles cuantificadores son:
+$$\forall~x\in A,\forall~y\in B:p(x,y)$$ $$\forall~x\in A,\exists~y\in B:p(x,y)$$ $$\exists~x\in A,\forall~y\in B:p(x,y)$$
+$$\exists~x\in A,\exists~y\in B:p(x,y)$$
+\end{block}
+\end{minipage}\pause 
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{alertblock}{\color{red}{Ejercicio propuesto}}
+\justifying
+Sean $U=\left\{-2,-\frac{1}{2},0,1\right\}$ y $V=\left\{-2,1,2\right\}$. Determine el valor de verdad de las siguientes
+proposiciones:
+
+\begin{enumerate}
+    \item $\forall~u\in U, \exists~v\in V: (uv+1<0)\lor(u^2-v^2=0)$.
+    \item $\forall~u\in U, \forall~v\in V: (uv+1<0)\lor(u^2-v^2=0)$.
+\end{enumerate}
+\end{alertblock}
+\end{minipage}
+  
+\end{frame}
+
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Existe una clara analogía entre álgebra de funciones proposicionales y la teoría de conjuntos.
+%       \item Los cuantificadores siempre transforman una función proposicional en una proposición.
+%   \end{itemize}
+
+% \end{frame}
+
+% % %==============================================
+% % \section{Asistencia}
+% % %==============================================
+
+% % \begin{frame}
+% %   \frametitle{\insertsectionhead}
+% %   \framesubtitle{\insertsubsectionhead}
+  
+% %   \justifying
+  
+% %   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+% %   \begin{center}
+% %   \includegraphics[scale=0.23]{QR}
+% %   \end{center}
+  
+% % \end{frame}
+
+
+\end{document}

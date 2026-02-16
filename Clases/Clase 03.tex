@@ -1,0 +1,387 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 3}
+\subtitle{Nociones de conjuntos. Funciones proposicionales}
+\author{Profesor: Denis Osses}
+% \date{\AdvanceDate[+1]\today}
+\date{12 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Utilizar propiedades de conjuntos en demostraciones.
+    \item Establecer el concepto de función proposicional.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+\subsection{Nociones de Teoría de Conjuntos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+  Las nociones de \textbf{conjunto}, \textbf{elemento} y \textbf{pertenencia} son las nociones primitivas de la teoría de conjuntos. La noción de conjunto surge de la idea intuitiva de colección. Los conjuntos se denotan con letras mayúsculas $A, B, C, D$, etc. Los elementos de un conjunto se denotan por letras minúsculas $a,b,c$ ,etc. La expresión: $a$ es elemento de $A$ es una proposición. Si es verdadera se escribe: $a\in A$, si es falsa se escribe $a\not\in A$. El símbolo $\in$ es el de la relación de pertenencia.\pause
+  
+  \hspace{0.1cm}
+  
+  Un conjunto $E$ se dice \textbf{definido por extensión} si se da la lista completa de todos sus elementos. Los elementos de un conjunto definido por extensión se colocan entre llaves separados por coma (,) tal cual se muestra en el siguiente ejemplo: $E=\{1,2,3,4\}$. Esta forma de definir un conjunto se justifica por el axioma de extensión.
+
+ \end{minipage}\pause
+ \hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+    \begin{block}{Axioma de extensión}
+    \justifying
+    Dos conjuntos $A$ y $B$ son iguales si tienen los mismos elementos, en cuyo caso se escribe $A=B$ y en caso contrario $A\neq B$.
+    \end{block}  \pause
+
+    \begin{exampleblock}{Ejemplo 1}
+    \justifying
+    $A=\{a,b,c,d\}$ y $B=\{a,a,b,a,b,c,d\}$ son iguales ya que la repetición y orden de elementos es irrelevante.
+    \end{exampleblock}\pause
+    
+    \begin{block}{Axioma de existencia} 
+    \justifying 
+    Cualquiera que sea el objeto $a$, existe un conjunto notado $\{a\}$ el cual tiene a $a$ por elemento: $a\in\{a\}$.
+    \end{block}
+\end{minipage}
+
+  
+\end{frame}
+
+%---------------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+    \begin{block}{Definición}
+    \justifying 
+    Los elementos de un conjunto suelen ser representados por puntos situados en una región plana interior a una curva simple (sin intersecciones). Si el conjunto tiene un gran número de elementos el conjunto se representa como toda la región en el interior de la curva. Este tipo de representación se denomina \textbf{diagrama de Venn-Euler}
+    \end{block}
+
+    \vspace{0.3cm}
+    \begin{figure}[ht!]
+    \begin{subfigure}[b]{0.13\textwidth}
+      \frame{\includegraphics[width=\textwidth]{venn1}}
+      %\caption*{plain}
+    \end{subfigure}
+    \hspace{0.2cm}
+    \begin{subfigure}[b]{0.27\textwidth}
+      \frame{\includegraphics[width=\textwidth]{venn2}}
+      %\caption*{style1}
+    \end{subfigure}
+    \hspace{0.2cm}
+    \begin{subfigure}[b]{0.22\textwidth}
+      \frame{\includegraphics[width=\textwidth]{venn3}}
+    \end{subfigure}
+    \hspace{0.2cm}
+    \begin{subfigure}[b]{0.22\textwidth}
+      \frame{\includegraphics[width=\textwidth]{venn4}}
+    \end{subfigure}
+  \end{figure}
+
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\begin{block}{Relación de inclusión o contenencia}
+    \justifying 
+   Un conjunto $A$ está contenido o incluido en un conjunto $B$, si todo elemento de $A$ es elemento de $B$. En tal caso se denota: $A\subseteq B$, y se lee: ``$A$ está contenido en $B$ ", o también ``$A$ es un subconjunto de $B$".
+    \end{block}\pause
+    
+    Note que las proposiciones: $A=B$ y $(A\subseteq B\wedge B\subseteq A)$ son lógicamente equivalentes. Por tanto, la proposición: $$A=B\Leftrightarrow(A\subseteq B\wedge B\subseteq A)$$ es una tautología.
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Funciones proposicionales}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.45cm}
+Una expresión que involucra una variable $x$ no es una proposición, como ``$x$ es par", pero al darle valores a la variable $x$ se obtiene una proposición. ¿Dónde toma valores la variable $x$? Si se supone que $x$ toma valores en los números enteros se tiene que al reemplazar el valor de $x$ por 16, la proposición ``16 es par'' es verdadera y al reemplazar por 5 el valor de $x$ la proposición: ``5 es par'' es falsa.\pause
+
+Cada vez que se defina una expresión que contenga una variable debe ser especificado el campo de ésta.\pause
+
+\begin{block}{Definición}
+    \justifying 
+    Dado un conjunto $E$ (denominado \textbf{referencial} o \textbf{universal}), se llama \textbf{función proposicional} en una variable dentro de $E$, a toda expresión que contiene una variable $x$ y que conduce a una proposición para cada valor $b$ dado a $x$ en $E$. Esta función se denota por $p(x)$.
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+Para definir una función proposicional se debe precisar:\pause
+
+\begin{itemize}
+\justifying
+    \item Un conjunto referencial $E$ (el campo de la variable).\pause
+    \item Una expresión que contenga una variable y tome valores en $E$.
+\end{itemize} \pause
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Si se tiene $E = \{1, 2, 3, 4, 5\}$ y $p(x): x$ es par, al darle valores a $x$ en $E$ se obtienen las proposiciones: $p(1) : 1$ es par, $p(2) : 2$ es par, $p(3) : 3$ es par, $p(4) : 4$ es par y $p(5) : 5$ es par. Las proposiciones $p(2)$ y $p(4)$ son verdaderas, así los elementos de $E$ que verifican $p(x)$ son: 2 y 4.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+%\subsection{Funciones proposicionales}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+A toda función proposicional $p(x)$ definida sobre un conjunto $E$ se le asocia un conjunto formado por aquellos elementos de $E$ que verifican $p(x)$, esto constituye el axioma de comprensión.\pause
+
+\begin{block}{Axioma de comprensión}
+\justifying
+Si $p(x)$ es una función proposicional definida sobre un conjunto $E$, entonces existe un conjunto cuyos elementos son los elementos de $E$ que verifican $p(x)$.
+\end{block}\pause
+
+Se designa este subconjunto de $E$ por $E_p$: $$E_p=\{x\in E: p(x)\}$$ y se lee: ``$E$ sub $p$ es el conjunto de los $x$ que pertenecen a $E$, tales que $p(x)$''. Note que, para todo $a\in E_p$, la proposición $p(a)$ es verdadera y para todo a $a\not\in E_p$, la proposición es falsa.
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.7cm}
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Sea $E=\mathbb{N}$, asociado a la función proposicional $p(x) : x$ es menor que 6. Así $$E_p=\{1,2,3,4,5\}.$$  Asociado a la función proposicional $q(x) : x$ es múltiplo de 5, tenemos que $$E_p=\{5,10,15,20,25,\ldots,5n,\ldots\}.$$
+\end{exampleblock}\pause
+
+\begin{block}{Nota}
+\justifying
+Un subconjunto $A$ de $E$, asociado a una forma proposicional $p(x)$, se dice definido por comprensión: $A = E_p = \{x\in E: p(x)\}$.
+\end{block}
+
+\end{minipage}
+
+
+\end{frame}
+
+
+% %---------------------------------------------------------------------
+% \subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+
+% Sean $p(x)$ y $q(x)$ funciones proposicionales definidas sobre un mismo conjunto referencial $E$, para cada valor $a$ dado a $x$, se obtienen las proposiciones $p(a)$ y $q(a)$ a las cuales se les puede aplicar el álgebra de proposiciones.\pause 
+
+% \hspace{0.1cm}
+
+% Las proposiciones $\neg p(a), p(a)\vee q(a)$, $p(a)\wedge q(a)$, $p(a)\Rightarrow q(a)$, son verdaderas o falsas dependiendo
+% del valor que tome $a$ en $E$ y determinan las funciones proposicionales: $\neg p(x), p(x)\vee q(x)$, $p(x)\wedge q(x)$, $p(x)\Rightarrow q(x)$, definidas sobre $E$, que a su vez determinan los subconjuntos de $E$ cuyos elementos verifican
+% estas funciones proposicionales.
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   %\frametitle{\insertsectionhead}
+%   %\framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+
+% \begin{exampleblock}{Ejemplo 4}
+% \justifying
+% Considere las funciones proposicionales: $p(x): x\leq 2$, $q(x): x^2\leq 9$ y $\neg(p(x)\Rightarrow q(x))$, definidas sobre el conjunto de los números naturales $\mathbb{N}$. Observe que: $p(a)$ es verdadera para todo
+% $a\in \mathbb{N}_p = \{1, 2\}$, $q(a)$ es verdadera para todo $a\in \mathbb{N}_q = \{1,2,3\}$ y $\neg(p(a)\Rightarrow q(a))$ es verdadera para todo $a\not\in \mathbb{N}_q$ y todo $a\in\mathbb{N}_p$. Luego $$\{x\in\mathbb{N}:\neg(p(x)\Rightarrow q(x))\}$$ es un conjunto sin elementos.
+% \end{exampleblock}\pause
+
+% \begin{block}{Definición}\pause
+% \justifying
+% Sea $E$ un conjunto referencial, a la función proposicional $p(x) : x\not\in E$ se le asocia, de acuerdo al axioma de comprensión, un conjunto. Este conjunto no tiene elementos por lo que se denomina \textbf{conjunto vacío}. Se denota por $\emptyset$: $$\emptyset=\{x\in E:x\not\in E\}.$$
+% \end{block}
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+
+% \begin{block}{Definición}\pause
+% \justifying
+% Sea $A$ un subconjunto de un conjunto $E$. El \textbf{complemento} de $A$ en $E$ es el conjunto asociado a la
+% función proposicional $p(x) : x\not\in A$. Existen varias formas en que se suele denotar el complemento de un conjunto las mas frecuentes son: $A^c, \overline{A}$.
+% \end{block}
+
+% Evidentemente este conjunto depende tanto de $A$ como del referencial $E$: $$A^c=\{x\in E:x\not\in A\}.$$
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%  \begin{block}{Definición}\pause
+% \justifying
+% Si $A$ y $B$ son dos subconjuntos de un referencial $E$, entonces la \textbf{unión} $A\cup B$ es el conjunto asociado a la función proposicional: $(x\in A)\vee (x\in B)$ definida en $E$: $$A\cup B=\{x\in E:(x\in A)\vee (x\in B)\}.$$
+% \end{block}\pause 
+
+% \begin{block}{Definición}\pause
+% \justifying
+% Si $A$ y $B$ son dos subconjuntos de un referencial $E$, entonces la \textbf{intersección} $A\cap B$ es el conjunto asociado a la función proposicional: $(x\in A)\wedge (x\in B)$ definida en $E$: $$A\cap B=\{x\in E:(x\in A)\wedge (x\in B)\}.$$
+% \end{block}
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Álgebra de funciones proposicionales}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%  \begin{exampleblock}{Ejemplo 5}
+% \justifying
+% Se define la \textbf{diferencia} entre los conjuntos $A$ y $B$ como $$A-B=\{x\in E:x\in A \wedge x\not\in B\}$$ Pruebe que $A-B=A\cap B^c$.
+% \end{exampleblock}\pause
+
+%  \begin{alertblock}{\color{red}{Ejercicio propuesto}}
+% \justifying
+% Demuestre que 
+% \begin{enumerate}
+%     \item $(A^c)^c=A$.
+%     \item $(A\cup B)^c=A^c\cap B^c$.
+%     \item $(A\cap B)^c=A^c\cup B^c$.
+% \end{enumerate}
+% \end{alertblock}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Hay una gran cantidad de propiedades en teoría de conjuntos; solo nos hemos enfocado en las más usadas en el curso.
+%       \item Existe una clara analogía entre álgebra de proposiciones y la teoría de conjuntos.
+%   \end{itemize}
+
+%  \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

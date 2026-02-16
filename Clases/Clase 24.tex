@@ -1,0 +1,222 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 24}
+\subtitle{Distancias}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{13 de junio de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Calcular distancias entre puntos, rectas y planos.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Distancia Punto-Plano}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Queremos determinar la distancia $D$ (más corta) entre el punto $P_1(x_1,y_1,z_1)$ y el plano $\pi: ax+by+cz=d$ \pause 
+
+\begin{center}
+\visible<2-10>{\includegraphics[scale=0.7]{distancia1.png}}
+\end{center} \pause
+
+Para ello, elegimos cualquier punto $P_0(x_0,y_0,z_0)$ del plano y construimos el vector $\vec{b}=\overrightarrow{P_0P_1}$. \pause Luego lo proyectamos sobre el vector $\vec{n}=(a,b,c)$ normal al plano:
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.8cm}
+\begin{center}
+$D=||P_{\vec{n}}(\vec{b})||=\left|\left|\left(\frac{\vec{b}\cdot\vec{n}}{||\vec{n}||^2}\right)\vec{n}\right|\right|=\frac{|\vec{b}\cdot\vec{n}|}{||\vec{n}||^2}||\vec{n}||$\end{center}\pause Por tanto, 
+
+\hspace{1cm}\begin{minipage}{0.4\textwidth}
+\begin{center}
+$\color{red}\boxed{\color{black}D=\frac{|\vec{b}\cdot\vec{n}|}{||\vec{n}||}}$
+\end{center}
+\end{minipage}\pause
+\begin{minipage}{0.45\textwidth}
+Esta expresión corresponde a la \textbf{distancia} $D$ \textbf{en forma vectorial}
+\end{minipage}\pause 
+
+\vspace{0.2cm}
+
+Podemos expresar esta fórmula reemplazando $\vec{b}=(x_1-x_0,y_1-y_0,z_1-z_0)$, $\vec{n}=(a,b,c)$ y simplificando: \pause $$\color{red}\boxed{\color{black}D=\frac{|ax_1+by_1+cz_1-d|}{\sqrt{a^2+b^2+c^2}}}$$\pause
+
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Determine la distancia del punto $B(1,-2,3)$ al plano $2x-y-z=2$.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Distancia Punto-Recta}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Queremos determinar la distancia $D$ (más corta) entre el punto $P_1(x_1,y_1,z_1)$ y la recta $L: \vec{r}=\vec{p}_0+\lambda\vec{v}$, $\lambda\in\mathbb{R}$.
+
+\begin{figure} [h]
+\centering
+\visible<2-7>{\includegraphics[scale=0.28]{distancia2.png}}
+\end{figure}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+Para ello elegimos cualquier punto $P_0(x_0,y_0,z_0)$ de la recta y construimos el vector $\vec{b}=\overrightarrow{P_0P_1}$. \pause Luego lo proyectamos sobre el vector director $\vec{v}$ de la recta $L$, obteniendo $P_{\vec{v}}(\vec{b})$. \pause Notamos que $$P_{\vec{v}}(\vec{b})+\vec{y}=\vec{b}~~\Rightarrow~~\vec{y}=\vec{b}-P_{\vec{v}}(\vec{b}).$$ \pause Como $$D=||\vec{y}||$$\pause concluimos que $$\color{red}\boxed{\color{black}D=\left|\left|\vec{b}-P_{\vec{v}}(\vec{b})\right|\right|}$$\pause 
+Note que $D$ corresponde a la norma (longitud) del vector complemento ortogonal de $\vec{b}$ sobre $\vec{v}$.
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Distancia Punto-Recta}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Otra forma de determinar la distancia $D$ desde el punto $P_1$ a la recta $L$ es mediante el siguiente proceso: \pause Tenemos que $$P_{\vec{v}}(\vec{b})+\vec{y}=\vec{b}$$ \pause Hacemos producto cruz $\times$ de esta igualdad con $\vec{v}$. \pause Obtenemos $$P_{\vec{v}}(\vec{b})\times\vec{v}+\vec{y}\times\vec{v}=\vec{b}\times\vec{v}.$$\pause Como $\vec{v}$ y $P_{\vec{v}}(\vec{b})$ son paralelos entonces $P_{\vec{v}}(\vec{b})\times\vec{v}=\vec{0}$. \pause Así $\vec{y}\times\vec{v}=\vec{b}\times\vec{v}.$ \pause Ahora tomamos la norma de estos vectores \pause $$||\vec{y}\times\vec{v}||=||\vec{b}\times\vec{v}||~~\Rightarrow~~||\vec{y}||\cdot||\vec{v}||\sen\left(\frac{\pi}{2}\right)=||\vec{b}\times\vec{v}||.$$
+Por lo tanto
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.8cm} $$\color{red}\boxed{\color{black}D=\frac{||\vec{b}\times\vec{v}||}{||\vec{v}||}}$$ \pause
+\vspace{-0.2cm}
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Determine la distancia desde el punto $A(1,2,3)$ a la recta \begin{eqnarray*}x&=&2t\\ y&=&-1-t~~,~~t\in\mathbb{R} \\ z&=&3\end{eqnarray*}
+\end{exampleblock}\pause
+
+\begin{exampleblock}{\color{red}{Ejercicio Propuesto}}
+\justifying
+Determine una fórmula que permita calcular la distancia más corta entre las rectas de ecuaciones $\ell_1: \vec{r}_1=\vec{p}_1+t_1\vec{v}_1$, $t_1\in\mathbb{R}$ y $\ell_2: \vec{r}_2=\vec{p}_2+t_2\vec{v}_2$, $t_2\in\mathbb{R}$.
+\end{exampleblock}
+\end{minipage}
+
+
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Advierta que existen varias formas de calcular las distancias.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

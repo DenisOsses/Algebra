@@ -1,0 +1,411 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 10}
+\subtitle{Sumas Dobles y Productorias}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+4]\today}
+%\date{\today}
+\date{9 de abril de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Definir las sumatorias dobles y calcular algunas de ellas.
+    \item Calcular productos aplicando sus propiedades.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%-------------------------------------------------------------------------
+\subsection{Sumatorias Dobles}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+ \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+%\vspace{0.1cm}
+\footnotesize
+\vspace{-0.8cm}
+\begin{exampleblock}{Ejemplo}
+    \justifying
+    Considere el siguiente arreglo rectangular de números: \pause 
+
+\begin{center}
+\vspace{-0.2cm}
+$\begin{array}{cccccccc}
+3 & 4 & 5& 6 & 7 & \cdots & 101 & 102\\
+6 & 8 & 10 & 12 & 14 & \cdots & 202 & 204\\  
+9 & 12 & 15 & 18 & 21 & \cdots & 303 & 306\\  
+12 & 16 & 20 & 24 & 28 & \cdots & 404 & 408\\  
+ \vdots & \vdots & \vdots & \vdots & \vdots &  & \vdots & \vdots\\  
+ 300 & 400  & 500 & 600 & 700 & \cdots & 10100 & 10200\\  
+303 & 404 & 505 & 606 & 707 & \cdots & 10201 & 10302\\ 
+\end{array}
+$
+\end{center} \pause 
+
+\vspace{-0.3cm}
+\begin{enumerate}[{(a)}]
+\justifying
+\item Escriba la suma de todos los n\'umeros de la cuarta fila del arreglo rectangular  anterior utilizando el s\'imbolo de sumatoria y calcule esta suma.
+
+\item Escriba la suma de todos los n\'umeros que aparecen en el arreglo anterior usando sumatorias y calcule dicha suma.
+\vspace{-0.1cm}
+\end{enumerate}
+
+\end{exampleblock}
+
+\end{minipage}\pause
+\hspace{0.4cm}
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-1.3cm}
+\footnotesize
+\begin{block}{Definición}
+    \justifying
+    Considere la sucesión $\{F(i)\}_{i\in\mathbb{N}}$. Sabemos que 
+    \vspace{-0.1cm}
+    $$\sum_{i=1}^m F(i)=F(1)+F(2)+\cdots+F(m).$$ \pause Si cada término de la sucesión $\{F(i)\}_{i\in\mathbb{N}}$ es, a su vez, una sumatoria, es decir 
+     \vspace{-0.2cm}
+    $$F(i)=\sum_{j=1}^{g(i)}f(i,j)
+     \vspace{-0.2cm}$$ \pause 
+     \vspace{-0.2cm}
+    Entonces 
+    \vspace{-0.2cm}
+    $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{g(i)}f(i,j)=\sum_{i=1}^m F(i) \vspace{-0.2cm}$$ corresponde a la \textbf{suma doble} de los términos $f(i,j)$. \pause 
+\end{block}
+
+\textbf{Nota}: Estudiaremos los siguientes casos más simples: cuando $g(i)=n$ (constante) y $g(i)=i
+$.
+
+\end{minipage}
+
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+%\subsection{Sumatorias Dobles}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+ \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.6cm}
+\footnotesize
+\begin{block}{Suma Rectangular}
+    \justifying
+    \underline{Si $g(i)=n$}: En este caso tenemos la sumatoria doble $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{n}f(i,j)$$ \pause y podemos interpretarla como la suma de los términos de un arreglo rectangular de $m$ filas y $n$ columnas: \pause 
+
+\begin{center}
+$\begin{array}{ccccc}
+f(1,1) & f(1,2) & f(1,3)&  \cdots & f(1,n) \\
+f(2,1) & f(2,2) & f(2,3)&  \cdots & f(2,n)\\  
+\vdots & \vdots & \vdots &  & \vdots \\  
+f(m,1) & f(m,2) & f(m,3)&  \cdots & f(m,n)
+\end{array}$
+\end{center}
+donde $f(i,j)$ corresponde al término en la fila $i$ y columna $j$ ($i=1,2,\ldots,m$ y $j=1,2,\ldots,n$).
+
+\end{block}
+
+\end{minipage}\pause
+\hspace{0.4cm}
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.3cm}
+\footnotesize
+\begin{block}{Suma Triangular}
+    \justifying
+\underline{Si $g(i)=i$}: En este caso tenemos la sumatoria doble $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{i}f(i,j)$$ \pause y podemos interpretarla como la suma de los términos de un arreglo triangular de $m$ filas y $m$ columnas: \pause 
+
+\begin{center}
+$\begin{array}{ccccc}
+f(1,1) &  & &   &  \\
+f(2,1) & f(2,2) & &   &\\  
+\vdots & \vdots & \ddots &  & \\  
+f(m,1) & f(m,2) & f(m,3)&  \cdots & f(m,m)
+\end{array}$
+\end{center}
+
+\end{block}
+
+\end{minipage}
+
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+%\subsection{Sumatorias Dobles}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+ \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.1cm}
+\footnotesize
+\begin{exampleblock}{Ejemplo}
+    \justifying
+    Usando sumas dobles exprese y calcule la suma de todos los números del siguiente arreglo triangular:
+
+\begin{center}
+$\begin{array}{cccccccc}
+1 &  & & &  &  &  & \\
+1 & 2 &  &  & &  &&\\  
+1& 2 & 3 & &  &  &  & \\  
+1 & 2& 3 & 4 &  &  & & \\  
+ \vdots & \vdots & \vdots & \vdots & \ddots &  &  & \\  
+ 1 & 2  & 3 & 4 & \cdots & n-1 &  & \\  
+1 & 2 & 3 & 4 & 5 & \cdots & n & \\ 
+\end{array}
+$
+\end{center}
+\end{exampleblock}
+
+\end{minipage}\pause
+\hspace{0.4cm}
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-1cm}
+\footnotesize
+\begin{exampleblock}{\color{red}{Propuesto}}
+\justifying
+Considere el siguiente arreglo cuadrado
+
+\begin{center}
+$\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13 }&  \cdots & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\  
+\vdots & \vdots & \vdots &  & \vdots \\  
+a_{n1} & a_{n2}  & a_{n3} &  \cdots & a_{nn}
+\end{array}
+$
+\end{center}
+
+Diremos que $a_{ij}$ está en el triángulo superior del arreglo si y solo si $i<j$. Análogamente, diremos que $a_{ij}$ está en el triángulo inferior del arreglo si y solo si $i>j$. 
+
+\begin{enumerate}[{(a)}]
+\justifying
+\item Usando sumas dobles exprese la suma de todos los términos del arreglo cuadrado que están en el triángulo superior del arreglo.
+\item Usando sumas dobles exprese la suma de todos los términos del arreglo cuadrado que están en el triángulo inferior del arreglo.
+\end{enumerate} 
+\vspace{-0.2cm}
+\end{exampleblock}
+
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+\subsection{Productorias}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+ \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.1cm}
+\footnotesize
+\begin{block}{Definición}\pause
+\justifying
+Considere la sucesión $\{f(k)\}_{k\in\mathbb{N}}=\{a_k\}_{k\in\mathbb{N}}$. El producto de los $n$ primeros términos de esta sucesión se denomina \textbf{productoria} de tales términos. \pause Anotamos $$\prod_{k=1}^n a_k=a_1\cdot a_2\cdots a_n.$$ \pause Notamos que $$\prod_{k=1}^1 a_k=a_1 \pause ~~,~~\prod_{k=1}^{n+1} a_k=\left(\prod_{k=1}^{n}a_k\right)\cdot a_{n+1}.$$ 
+
+\end{block}
+
+\end{minipage}\pause
+\hspace{0.4cm}
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.4cm}
+\footnotesize
+\begin{block}{Propiedades}\pause
+Si $\{a_{k}\}_{k\in\mathbb{N}}$ y $\{b_{k}\}_{k\in\mathbb{N}}$ son dos sucesiones reales, entonces: \pause
+\justifying
+\begin{enumerate}[<+->]
+    \item \textbf{Productoria del producto}: $\displaystyle\prod_{k=1}^{n}(a_{k}\cdot b_{k})=\left(\displaystyle\prod_{k=1}^{n}a_{k}\right)\left(\displaystyle\prod_{k=1}^{n}b_{k}\right)$
+    \item \textbf{Asociatividad}: $\displaystyle\prod_{k=1}^{n}a_{k}=\left(\displaystyle\prod_{k=1}^{m}a_{k}\right)\displaystyle\left(\prod_{k=m+1}^{n}a_{k}\right)$\hspace{0,1 cm},~con $1\leq m < n$.
+    \item \textbf{Factorización}: $\displaystyle\prod_{k=1}^{n}ca_{k}=c^{n}\displaystyle\prod_{k=1}^{n}a_{k}~~$,~con $c\in\mathbb{R}$.
+\end{enumerate}
+\end{block}
+
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+%\subsection{Productorias}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+ \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.6cm}
+\footnotesize
+\begin{block}{Propiedades}\pause
+\justifying
+\begin{enumerate}[<+->]
+    \item[4.] \textbf{Cambio de índice}: $\displaystyle\prod_{k=m-l}^{n-l}a_{k+l}=\displaystyle\prod_{k=m}^{n}a_{k}=\displaystyle\prod_{k=m+l}^{n+l}a_{k-l}~~$\hspace{0,1 cm},  con $l\leq m<n$.
+    \item[5.] \textbf{Cancelación}: $ \displaystyle\prod_{k=m}^{n}\frac{a_{k}}{a_{k+1}}=\frac{a_{m}}{a_{n+1}}~~$, con  $1\leq m\leq n$.
+\end{enumerate}
+\end{block}\pause 
+
+\begin{block}{Nota}
+\justifying
+Definimos el \textbf{factorial} de $n$ como: $~~~~n!=1\cdot 2\cdot3\cdots n=\displaystyle\prod_{k=1}^n k~~,~~0!=1$
+\end{block}
+
+\end{minipage}\pause
+\hspace{0.4cm}
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.4cm}
+\footnotesize
+\begin{exampleblock}{Ejemplo}
+\justifying
+ Calcular $\displaystyle \prod_{k=1}^{n}\frac{3k2^{k}}{5^{2k}(2k+2)}$
+\end{exampleblock}\pause 
+
+\begin{exampleblock}{Ejemplo}
+\justifying
+Calcule $\displaystyle\prod_{k=1}^{n}ka^{b+k}$ en términos de $a,b$ y $n$.
+\end{exampleblock}\pause
+
+\begin{exampleblock}{\color{red}{Propuesto}}
+\justifying
+Verifique que  $\displaystyle \prod_{n=1}^{10}\sum_{i=1}^{n}(1+i)=\dfrac{10!\cdot13!}{2^{10}\cdot3!}$
+\end{exampleblock}
+
+
+\end{minipage}
+
+\end{frame}
+
+
+% %---------------------------------------------------------------------
+% %\subsection{Propiedades}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+
+% \begin{exampleblock}{Ejemplo 4}
+% \justifying
+%  Calcular $\displaystyle \sum_{i=0}^{100}\prod_{j=0}^i 3\left(\frac{2^j}{2^{j+1}}\right)$
+% \end{exampleblock}
+
+% \end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Las productorias son multiplicaciones de elementos de una sucesión generada por una patrón o fórmula $f(k)=a_k$. Su símbolo $\prod$ es una forma abreviada de escribir dicho producto. No debe confundir con la sumatoria ni sus propiedades.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

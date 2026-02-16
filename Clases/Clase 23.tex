@@ -1,0 +1,261 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 23}
+\subtitle{Planos. Posiciones relativas}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{9 de junio de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Reconocer los elementos de las diferentes representaciones de planos y determinar sus ecuaciones.
+    \item Usar las distintas representaciones de planos y sus propiedades para resolver problemas geométricos.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Planos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Observemos la siguiente figura:
+\begin{center}
+\includegraphics[scale=0.7]{Plano1.png}
+\end{center}
+\end{minipage}\pause 
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-1cm}
+\begin{block}{Definición}
+\justifying
+Un \textbf{plano} en el espacio $\mathbb{R}^3$ es el conjunto determinado por \pause
+\vspace{0.1cm}
+\begin{itemize}[<+->]
+\justifying
+    \item un punto $P_0(x_0, y_0, z_0)$ en el plano
+    \item y un vector $\vec{n}$ que es ortogonal al plano. Este vector ortogonal $\vec{n}$ se llama \textbf{vector normal}.
+\end{itemize} \pause
+\vspace{0.2cm}
+Sea $P(x, y, z)$ un punto arbitrario en el plano, y sean $\vec{r}_0$ y $\vec{r}$ los vectores posición de $P_0$ y $P$, respectivamente. \pause Entonces $\overrightarrow{P_0P}=\vec{r}-\vec{r}_0$. \pause El vector normal $\vec{n}$ es ortogonal a todo vector en el plano dado. \pause En particular, $\vec{n}$ es ortogonal a $\vec{r}-\vec{r}_0$, por tanto, se tiene \pause  $$\color{red}\boxed{\color{black}\vec{n}\cdot(\vec{r}-\vec{r}_0)=0}.$$ \pause
+Esta ecuación es conocida como \textbf{ecuación vectorial del plano}.
+
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+%\subsection{Planos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Si escribimos los vectores en coordenadas: $\vec{n}=(a,b,c)$, $\vec{r}=(x,y,z)$ y $\vec{r}_0=(x_0,y_0,z_0)$. \pause Reemplazando en la ecuación vectorial, obtenemos $$(a,b,c)\cdot(x-x_0,y-y_0,z-z_0)=0.$$ \pause Equivalentemente, $$\color{red}\boxed{\color{black}a(x-x_0)+b(y-y_0)+c(z-z_0)=0}$$ \pause
+que es conocida como \textbf{ecuación general del plano} que contiene al punto $P_0(x_0,y_0,z_0)$ con vector normal $\vec{n}$. \pause
+\begin{block}{Nota}
+\justifying
+Un plano que contiene al punto $P_0(x_0,y_0,z_0)$ es generado por 2 vectores no paralelos $\vec{u}$ y $\vec{v}$, cuya ecuación es $\vec{r}=\vec{r}_0+\mu\vec{u}+\lambda\vec{v}$, con $\mu,\lambda\in\mathbb{R}$.
+\end{block}
+
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.8cm}
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Determine la ecuación del plano que pasa por los puntos $A(1,1,-1)$, $B(2,-1,3)$ y $C(3,1,1)$.
+\end{exampleblock}\pause
+\begin{block}{Nota}
+\justifying
+En el ejemplo anterior reescribimos la ecuación del plano como $$\color{red}\boxed{\color{black}ax+by+cz=d}$$\pause
+Esta ecuación es conocida como \textbf{ecuación cartesiana del plano} y es la forma habitual de escribirla.\pause
+\vspace{0.2cm}
+Además, si 2 de los 3 parámetros $a,b,c$ son 0, entonces tenemos \textbf{planos paralelos a los planos coordenados} $XY$, $XZ$ e $YZ$. 
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Posiciones relativas entre planos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+\begin{block}{Definición}
+\justifying
+Dos planos son \textbf{paralelos} si sus vectores normales son paralelos. \pause Dos planos son \textbf{ortogonales o perpendiculares} si sus vectores normales son ortogonales o perpendiculares. 
+\end{block}\pause
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Encuentre la ecuación del plano $\pi$ sabiendo que:
+\begin{enumerate}[{(1)}]
+\justifying
+\item $(0, 0, 0)\in\pi$,
+\item $\pi$ es perpendicular al plano $\pi_1$, donde $\pi_1: x + y - z = 1$,
+\item $\pi$ es paralelo a la recta $\ell$, donde $\ell : x = -1 -3, y = 1 + 2t, z = t$, con $t$ en $\mathbb{R}$.
+\end{enumerate}
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+   \visible<4-5>{\includegraphics[scale=0.75]{Plano2.png}}
+\end{center}\pause
+\begin{block}{Definición}
+\justifying
+El ángulo $\theta$ entre dos planos $\pi_1$ y $\pi_2$ corresponde al ángulo formado por sus vectores normales $\vec{n}_1$ y $\vec{n}_2$, respectivamente.
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Posiciones relativas entre planos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Considere el punto $P(2,0,1)$ y la recta $$L:(x,y,z)=(1,2,3)+t(-2,-1,1)~~,~~t\in\mathbb{R}.$$
+\vspace{-0.5cm}
+\begin{enumerate}[{(1)}]
+\justifying
+\item Encuentre la ecuación del plano que contiene al punto $P$ y es perpendicular a $L$.
+\item Encuentre la ecuación del plano que contiene a la recta $L$ y al punto $P$.
+\end{enumerate}
+\end{exampleblock}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\end{minipage}
+
+
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Advierta que la ecuación $ax+by=d$ representa un plano en el espacio, no una recta en el plano. Cada ecuación debe ser entendida en su contexto. 
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

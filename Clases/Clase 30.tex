@@ -1,0 +1,265 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+\usepackage{caption}
+
+% Document metadata
+\title{Clase 27}
+\subtitle{Polinomios. Algoritmo de la División y Teorema del Resto}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{25 de junio de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Definir polinomios junto a sus elementos y operaciones principales.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Polinomios}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición}
+\justifying
+Un polinomio $f$ es una expresión (función) de la forma $$f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots a_2x^2+a_1x+a_0~~,~~x\in\mathbb{R}$$ donde los $a_i\in\mathbb{R}$ se denominan \textbf{coeficientes} del polinomio y $n\in\mathbb{N}$ es su \textbf{grado} u \textbf{orden}.
+\end{block}\pause
+
+% \begin{exampleblock}{Ejemplo}
+% \justifying
+% Las funciones constante, lineal, cuadrática y cúbica son polinomios.
+% \end{exampleblock}
+
+\begin{block}{Definición}
+\justifying
+Un polinomio $f$ es \textbf{divisible} por el polinomio $p$ si existe otro polinomio $q$ tal que $$f(x)=p(x)q(x).$$
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo}
+\justifying
+$x^4-16$ es divisible por $x^2-4$, $x^2+4$, $(x-2)$ y $x+2$, pero no es divisible por $x^2+3x+1.$
+\end{exampleblock}\pause 
+
+\begin{block}{División de polinomios}
+\justifying
+Si $f(x)$ y $p(x)$ son polinomios y si $p(x)\neq0$, entonces existen polinomios únicos $q(x)$ y $r(x)$ tales que $$f(x)=p(x)q(x)+r(x)$$
+donde ya sea $r(x)=0$ o el grado de $r(x)$ es menor que el grado de $p(x)$. El polinomio $q(x)$ es el \textbf{cociente} y $r(x)$ es el \textbf{residuo} en la división de $f(x)$ entre $p(x)$.
+\end{block}
+\end{minipage}
+
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Teorema del Resto}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo}
+\justifying
+Realice la división de $x^4-16$ entre $x^2+3x+1.$
+\end{exampleblock}\pause 
+\begin{block}{Teorema del Resto}
+\justifying
+Si un polinomio $f(x)$ se divide entre $x-c$, entonces el residuo (resto) es $f(c)$
+\end{block}\pause 
+
+\begin{block}{Teorema del Factor}
+\justifying
+Un polinomio $f(x)$ tiene un factor $x-c$ si y sólo si $f(c)=0$.
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo}
+\justifying
+Demuestre que $x-2$ es un factor del polinomio $~~~~f(x)=x^3-4x^2+3x+2$.
+\end{exampleblock}\pause 
+
+Para aplicar el teorema del resto es necesario dividir un polinomio $f(x)$ entre $x-c$. El método de \textbf{división sintética} se puede usar para simplificar este
+trabajo. \pause 
+
+\begin{exampleblock}{Ejemplo}
+\justifying
+Use división sintética para hallar el cociente $q(x)$ y residuo $r$ si el polinomio $2x^4+5x^3-2x-8$ se divide entre $x+3$.
+\end{exampleblock}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{División Sintética}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+    \includegraphics[scale=0.53]{sintetica}
+\end{center}
+\end{minipage}\pause 
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-5cm}
+Los teoremas del factor y el resto se pueden extender al conjunto de números complejos. Así, un número complejo $c=a+bi$ es un cero de un polinomio $f(x)$ si y sólo si $x-c$ es un factor de $f(x)$. Excepto en casos especiales,
+los ceros de polinomios son muy difíciles de hallar. El siguiente teorema expresa que hay al menos un cero $c$ y, en consecuencia, por el teorema del factor, $f(x)$ tiene un factor de la forma $x-c$.
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Teorema Fundamental del Álgebra}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Teorema Fundamental del Álgebra}
+\justifying
+    Si un polinomio $f(x)$ tiene un grado positivo y coeficientes complejos, entonces $f(x)$ tiene al menos un cero complejo.
+\end{block}\pause 
+\begin{block}{Factorización
+completa para polinomios}
+\justifying
+Si $f(x)$ es un polinomio de grado $n>0$, entonces existen $n$ números complejos $c_1,c_2,\ldots,c_n$ tales que $$f(x)=a(x-c_1)(x-c_2)\cdots(x-c_n)$$
+donde $a$ es el coeficiente principal de $f(x)$. Cada número $c_k$ es un cero de $f(x).$
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo}
+    \justifying Factorice completamente el polinomio $$p(x)=5x^3-30x^2+65x$$
+\end{exampleblock}\pause
+
+\begin{block}{Teorema}
+    \justifying
+    Todo polinomio con coeficientes reales y $n$ de grado positivo se pueden expresar como un producto de polinomios lineales y cuadráticos con coeficientes reales tales que los factores cuadráticos son irreducibles sobre $\mathbb{R}$.
+\end{block}
+
+\end{minipage}
+
+\end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Desde el punto de vista polar, la multiplicación de complejos se puede interpretrar como rotaciones.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

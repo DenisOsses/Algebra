@@ -1,0 +1,385 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 13}
+\subtitle{Funciones trigonométricas}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+2]\today}
+%\date{\today}
+\date{23 de abril de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Definir y estudiar las propiedades de las funciones trigonométricas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Circunferencia goniométrica}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+Consideremos una circunferencia de radio 1, con centro en $(0,0)$ cuyo punto inicial es el $(1,0)$ 
+
+\begin{center}
+    \includegraphics[scale=0.6]{goniometrica.png}
+\end{center}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+Ir desde $(1,0)$ al punto $P$ es girar en sentido positivo. \pause El ángulo del sector circular formado por $(1,0)$, el origen y $P$ es $x$. \pause El punto $P$ tiene coordenadas $P(a_x,b_x)$ (dependen de $x$). \pause
+
+\begin{block}{Definición}
+\justifying
+\begin{enumerate}[<+->]
+\justifying
+    \item  La función \textbf{seno} de $x$ se define como: $f(x)=\sen(x)=b_x$.
+    \item  La función \textbf{coseno} de $x$ se define como: $f(x)=\cos(x)=a_x$.
+    \item La función \textbf{tangente} de $x$ se define como: $f(x)=\tan(x)=\dfrac{b_x}{a_x}.$
+\end{enumerate}
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+\begin{block}{Nota}
+\justifying
+Mediremos el ángulo $x$ en \textbf{radianes}. \pause La equivalencia entre radianes y grados (sexagesimales) está dada por la idea de que un giro completo a la circunferencia de radio 1 equivale a rotar en $360^\circ$ y la distancia recorrida en dicho giro es $2\pi$. \pause Así, tenemos $$2\pi~(\textrm{rad})=360^\circ~~\Leftrightarrow~~\pi~ (\textrm{rad})=180^\circ.$$
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 1}
+Determine en radianes el ángulo $330^\circ$.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+%\subsection{Funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+  \begin{center}
+  \renewcommand\arraystretch{1.5}
+      \begin{tabular}{|c||c|c|c|c|c|c|}
+      \hline
+          $x$ (en radianes) & $\sen(x)$ & $\cos(x)$ & $\tan(x)$ & $\csc(x)$ & $\sec(x)$ & $\cot(x)$ \pause\\
+          \hline 
+          $0$ & $0$ & $1$ & $0$ & no existe & $1$ & no existe \pause\\
+          \hline 
+          $\myfrac{\pi}{6}$ & $\myfrac{1}{2}$ & $\myfrac{\sqrt{3}}{2}$ & $\myfrac{\sqrt{3}}{3}$ & $2$ & $\myfrac{2\sqrt{3}}{3}$ & $\sqrt{3}$ \pause\\
+          \hline 
+          $\myfrac{\pi}{4}$ & $\myfrac{\sqrt{2}}{2}$ & $\myfrac{\sqrt{2}}{2}$ & $1$ & $\sqrt{2}$ & $\sqrt{2}$ & $1$ \pause\\
+          \hline 
+          $\myfrac{\pi}{3}$ & $\myfrac{\sqrt{3}}{2}$ & $\myfrac{1}{2}$ & $\sqrt{3}$ & $\myfrac{2\sqrt{3}}{3}$ & $2$ & $\myfrac{\sqrt{3}}{3}$ \pause\\
+          \hline
+          $\myfrac{\pi}{2}$ & $1$ & $0$ & no existe & $1$ & no existe & $0$\\
+          \hline
+      \end{tabular}
+  \end{center}\pause
+  
+\begin{exampleblock}{Ejemplo 2}
+Determine el valor de $\cos\left(\dfrac{2\pi}{3}\right)$, $\cos\left(\pi\right)$, $\sen\left(\dfrac{5\pi}{4}\right)$, $\cos\left(-\dfrac{\pi}{3}\right)$, 
+\end{exampleblock}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Estudio de las funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{block}{Función seno}
+\justifying
+Como $x$ puede tomar cualquier valor entonces $$dom(\sen(x))=\mathbb{R}.$$ \pause La segunda coordenada $b_x$ de $P$ solamente puede tomar valores entre $-1$ y $1$, ya que el punto $P$ está sobre la circunferencia. Luego $$rec(\sen(x))=[-1,1].$$ \pause
+Además, el punto $P(a_x,b_x)$ permanece invariante si hacemos rotaciones en ángulos de valor $\pm2\pi$; es decir  $$P(a_x,b_x)=P(a_{x\pm 2\pi},b_{x\pm 2\pi}).$$
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+\begin{block}
+\justifying
+A partir de esto, decimos que $\sen(x)$ es \textbf{periódica} (con periodo $2\pi$); es decir $$\sen(x\pm 2\pi)=\sen(x).$$ Con la periodicidad basta estudiar $\sen(x)$ para $x\in[0,2\pi]$. \pause
+
+\vspace{0.2cm}
+
+Otra propiedad importante es que $\sen(x)$ es \textbf{impar}, es decir $\sen(-x)=-b_x=-\sen(x)$. Con esto, basta con estudiar $\sen(x)$ para $x\in[0,\pi]$\pause
+
+\vspace{0.2cm}
+
+Para construir su gráfica, vemos la siguiente aplicación de \href{https://www.geogebra.org/m/tu3PFgUf}{Geogebra}
+\end{block}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Estudio de las funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{block}
+\justifying
+Su gráfica es 
+\begin{center}
+    \includegraphics[scale=1]{seno}
+\end{center}
+
+\end{block}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Estudio de las funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{block}{Función coseno}
+\justifying
+Como $x$ puede tomar cualquier valor entonces $$dom(\cos(x))=\mathbb{R}.$$ \pause La primera coordenada $a_x$ de $P$ solamente puede tomar valores entre $-1$ y $1$, ya que el punto $P$ está sobre la circunferencia. Luego $$rec(\cos(x))=[-1,1].$$ \pause
+Además, el punto $P(a_x,b_x)$ permanece invariante si hacemos rotaciones en ángulos de valor $\pm2\pi$; es decir  $$P(a_x,b_x)=P(a_{x\pm 2\pi},b_{x\pm 2\pi}).$$
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+\begin{block}
+\justifying
+A partir de esto, decimos que $\cos(x)$ es \textbf{periódica} (con periodo $2\pi$); es decir $$\cos(x\pm 2\pi)=\cos(x).$$ Con la periodicidad basta estudiar $\cos(x)$ para $x\in[0,2\pi]$. \pause
+
+\vspace{0.2cm}
+
+Otra propiedad importante es que $\cos(x)$ es \textbf{par}, es decir $\cos(-x)=a_x=\cos(x)$. Con esto, basta con estudiar $\cos(x)$ para $x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$\pause
+
+\vspace{0.2cm}
+
+Para construir su gráfica, vemos la siguiente aplicación de \href{https://www.geogebra.org/m/tu3PFgUf}{Geogebra}
+\end{block}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Estudio de las funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{block}
+\justifying
+Su gráfica es 
+\begin{center}
+    \includegraphics[scale=1]{coseno}
+\end{center}
+
+\end{block}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Estudio de las funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+\begin{block}{Función tangente}
+\justifying
+Como $\tan(x)=\frac{\sen(x)}{\cos(x)}=\frac{b_x}{a_x}$ entonces $\cos(x)\neq0$, lo cual ocurre en los múltiplos impares de $\frac{\pi}{2}$, es decir  $$dom(\tan(x))=\mathbb{R}-\left\{(2k+1)\cdot\frac{\pi}{2}, k\in\mathbb{Z}\right\}.$$ \pause Ya que $-1\leq a_x,b_x\leq1$, el cuociente $\frac{b_x}{a_x}$ cubre todo el rango real. Luego $$rec(\tan(x))=\mathbb{R}.$$ \pause
+Además, el cuociente $\frac{b_x}{a_x}$ permanece invariante en el primer y tercer cuadrantes, o en el cuarto y segundo cuadrantes de la circunferencia goniométrica, es decir, bajo rotaciones en ángulos de valor $\pm\pi$. 
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+\begin{block}
+\justifying
+A partir de esto, decimos que $\tan(x)$ es \textbf{periódica} (con periodo $\pi$); es decir $$\tan(x\pm \pi)=\tan(x).$$ Con la periodicidad basta estudiar $\tan(x)$ para $x\in\left]-\frac{\pi}{2},\frac{\pi}{2}\right[$. \pause
+
+\vspace{0.2cm}
+
+Otra propiedad importante es que $\tan(x)$ es \textbf{impar}, es decir $\tan(-x)=-\tan(x)$. \pause
+
+\vspace{0.2cm}
+
+Para construir su gráfica, vemos la siguiente aplicación de \href{https://www.geogebra.org/m/tu3PFgUf}{Geogebra}
+\end{block}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Estudio de las funciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{block}
+\justifying
+Su gráfica es 
+\begin{center}
+    \includegraphics[scale=0.5]{tangente}
+\end{center}
+
+\end{block}
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Las otras funciones trigonométricas: cosecante, secante y cotangente, se definen de modo análogo al de la clase anterior.
+%       \item Todas las definiciones e identidades vistas en la clase anterior, son válidas para las funciones trigonométricas en general.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

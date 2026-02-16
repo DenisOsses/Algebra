@@ -1,0 +1,250 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 2}
+\subtitle{Equivalencias Lógicas. Álgebra proposicional}
+\author{Profesor: Denis Osses}
+% \date{\AdvanceDate[+3]\today}
+\date{10 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Demostrar equivalencias lógicas de proposiciones.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+\subsection{Equivalencias lógicas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-2.5cm}
+\begin{block}{Definición}
+Dos proposiciones compuestas $m$ y $n$ son \textbf{equivalentes} si entregan el mismo valor de verdad para todo valor de verdad de $m$ y $n$. Escribimos $m\equiv n$ para indicar esto. 
+\end{block}  \pause
+    
+De este modo  tenemos que $p\Rightarrow q\equiv \neg p\vee q$. \pause
+
+\begin{exampleblock}{Ejemplo 1}
+Pruebe que $p\Rightarrow q\equiv \neg q\Rightarrow\neg p.$
+    \end{exampleblock}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}{0.5\linewidth}
+\justifying
+    \begin{block}{Definición}
+    Algunas equivalencias lógicas usuales son
+    \begin{enumerate}[<+->]
+    \item $\neg(\neg p)\equiv p$.
+    \item $\neg(p\vee q)\equiv \neg p\wedge \neg q$.
+    \item $\neg(p\wedge q)\equiv \neg p\vee \neg q$.
+    \item $p\Rightarrow q\equiv \neg p\vee q$.
+    \item $p\Rightarrow q\equiv \neg q\Rightarrow \neg p$.
+    \item $p\Leftrightarrow q\equiv (p\Rightarrow q)\wedge(q\Rightarrow p)$.
+    \end{enumerate}
+    \end{block}\pause 
+    
+    \begin{exampleblock}{Ejemplo 2}
+    ?`Es cierto que $p\Rightarrow q\equiv q\Rightarrow p$?
+    \end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+    
+    \begin{alertblock}{\color{red}{Ejercicio propuesto}}\pause
+    Considere el conectivo $\ast$ definido por $$\begin{tabular}{|c|c|c|}
+    \hline
+     $p$& $q$& $p\ast q$ \\
+     \hline
+     $V$& $V$& $F$\\
+     $V$& $F$& $V$\\
+     $F$& $V$& $F$\\
+     $F$& $F$& $F$\\
+     \hline
+     \end{tabular}$$
+
+Determine una proposición compuesta, lógicamente equivalente a $p\ast q$, que solo contenga los conectivos $\neg$ y $\wedge$. ?`Será verdad que $p\ast q\equiv q\ast p$?
+    \end{alertblock}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+\subsection{Tautología, contradicción y contingencia}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+    
+    \begin{block}{Definición}
+    \justifying
+    Una proposición cuyo valor de verdad es siempre $V$, cualquiera sea el valor de verdad de las proposiciones simples involucradas, se llama \textbf{tautología}.\pause
+    \end{block}
+    
+    \begin{exampleblock}{Ejemplo 3}
+    Probar que $(p\wedge q)\Rightarrow p$ es una tautología.\pause
+    \end{exampleblock}
+    
+    \begin{block}{Definición}
+    \justifying
+     Una proposición cuyo valor de verdad es siempre $F$, cualquiera sea el valor de verdad de las proposiciones simples involucradas, se llama \textbf{contradicción}.
+    \end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+ \begin{exampleblock}{Ejemplo 4}
+    Probar que $p\wedge\neg p$ es una contradicción.\pause
+    \end{exampleblock}
+    
+    \begin{block}{Definición}
+    \justifying
+     Una proposición cuyo valor de verdad no es fijo, cualquiera sea el valor de verdad de las proposiciones simples involucradas, se llama \textbf{contingencia}.\pause
+    \end{block}
+    
+    \begin{exampleblock}{Ejemplo 5}
+    Determine si la siguiente proposición es una tautología, contradicción o contingencia $$((p \Rightarrow q) \wedge p \wedge \neg q) \Rightarrow (\neg p \vee q)$$
+    \end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+%-------------------------------------------------------------------------
+%\subsection{Tautología, contradicción y contingencia}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+  
+    \begin{alertblock}{\color{red}{Ejercicio propuesto}}
+    Pruebe las siguientes leyes o equivalencias lógicas
+    \begin{enumerate}
+        \item $p\vee p\equiv p$ (idempotencia)
+        \item $p\wedge p\equiv p$ (idempotencia)
+        \item $p\vee(q\vee r)\equiv (p\vee q)\vee r$ (asociatividad)
+        \item $p\wedge(q\wedge r)\equiv (p\wedge q)\wedge r$ (asociatividad)
+        \item $p\vee(q\wedge r)\equiv (p\vee q)\wedge(p\vee r)$ (distributividad)
+        \item $p\wedge(q\vee r)\equiv (p\wedge q)\vee(p\wedge r)$ (distributividad)
+        \item $p\wedge(p\vee q)\equiv p$ (absorción)
+        \item $p\vee(p\wedge q)\equiv p$ (absorción)
+    \end{enumerate}
+    \end{alertblock}
+
+\end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item En general todos los conectivos se pueden definir en términos de $\neg$, $\wedge$ y $\vee$. Se recomienda escribir $\Rightarrow$ y $\Leftrightarrow$ usándolos.
+%       \item Una equivalencia lógica se puede interpretar como una ``traducción'' de una proposición en otra.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

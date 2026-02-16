@@ -1,0 +1,231 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 22}
+\subtitle{Producto cruz}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{6 de junio de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Definir producto cruz entre vectores y sus propiedades.
+    \item Aplicar las propiedades fundamentales de las operaciones de vectores para la resolución de problemas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Producto cruz}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Consideremos el siguiente problema: dados dos vectores no colineales $\vec{a}$ y $\vec{b}$ en el espacio, nos interesa obtener un tercer vector $\vec{c}$ que cumpla las siguientes condiciones: \pause
+
+\begin{enumerate}[{(1)}]
+    \item $\vec{c}$ es perpendicular a $\vec{a}$. \pause
+    \item $\vec{c}$ es perpendicular a $\vec{b}$.
+    %\item $\vec{c}$ es igual al 'area del paralel'ogramo que determinan los vectores $\vec{a}$ y $\vec{b}$.
+\end{enumerate} \pause 
+
+\begin{block}{Definición}
+\justifying
+Si $\vec{a}=(a_1,a_2,a_3)$ y $\vec{b}=(b_1,b_2,b_3)$ entonces el \textbf{producto cruz} de $\vec{a}$ y $\vec{b}$ es el vector \pause $$\color{red}\boxed{\color{black}\vec{a}\times\vec{b}=(a_2b_3-a_3b_2,a_3b_1-a_1b_3,a_1b_2-a_2b_1)}$$
+\end{block}
+\end{minipage}  \pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+A fin de hacer la definición más fácil de recordar, se usa la notación de determinantes. \pause Un \textbf{determinante de orden 2} se define mediante $$\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc.$$\pause
+
+Un \textbf{determinante de orden 3} se puede definir en términos de determinantes de segundo orden como sigue: \pause $$\begin{vmatrix}a&b&c\\a_1&a_2&a_3\\ b_1&b_2&b_3\end{vmatrix}=a\begin{vmatrix}a_2&a_3\\b_2&b_3\end{vmatrix}-b\begin{vmatrix}a_1&a_3\\b_1&b_3\end{vmatrix}+c\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix}.$$
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Propiedades}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+Ahora, si definimos los vectores (\textbf{canónicos}) del espacio: $\hat{i}=(1,0,0)$, $\hat{j}=(0,1,0)$ y $\hat{k}=(0,0,1)$, \pause podemos reescribir el producto cruz de $\vec{a}$ con $\vec{b}$ como \pause 
+\tiny{$$\color{red}\boxed{\color{black}\vec{a}\times\vec{b}=\begin{vmatrix}\hat{i}&\hat{j}&\hat{k}\\a_1&a_2&a_3\\ b_1&b_2&b_3\end{vmatrix}=\begin{vmatrix}a_2&a_3\\b_2&b_3\end{vmatrix}\hat{i}-\begin{vmatrix}a_1&a_3\\b_1&b_3\end{vmatrix}\hat{j}+\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix}\hat{k}}$$} \pause
+\footnotesize
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Determine el producto cruz de los vectores $\vec{a}=(1,1,1)$ y $\vec{b}=(-1,0,2)$.
+\end{exampleblock}
+\end{minipage}\pause 
+\hspace{0.8cm}\begin{minipage}[t]{0.47\linewidth}
+\vspace{-0.8cm}
+\begin{block}{Propiedades}\pause
+\justifying
+Sean $\vec{a},\vec{b}$ y $\vec{c}$ vectores en $\mathbb{R}^3$, y $\alpha$ un número real. Se verifican: \pause
+\begin{enumerate}[<+->][{(1)}]
+\justifying
+\item $\vec{a} \times \vec{b}$ es perpendicular a $\vec{a}$ y $\vec{b}$.
+\item $\vec{a} \times \vec{b}=-(\vec{b}\times \vec{a})$
+\item Si $\vec{a}$ y $\vec{b}$ son paralelos entonces $\vec{a}\times\vec{b}=\vec{0}$
+\item $\vec{a}\times (\alpha \vec{b})=(\alpha \vec{a})\times \vec{b}=\alpha ( \vec{a} \times \vec{b})$
+\item $\vec{a}\times (\vec{b}+\vec{c})=(\vec{a}\times \vec{b})+(\vec{a}\times \vec{c})$
+\item $||\vec{a} \times \vec{b}||$ es igual al área del parelelógramo formado por $\vec{a}$ y $\vec{b}$, y si $\theta$ es el ángulo formado por $\vec{a}$ y $\vec{b}$ entonces
+$$||\vec{a} \times \vec{b}||=||\vec{a}||||\vec{b}||\sen(\theta).$$
+\end{enumerate}
+\vspace{-0.5cm}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Propiedades}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Calcule el área del triángulo formado por los puntos $A(-1,2,3)$, $B(1,-2,0)$ y $C(2,4,5)$.
+\end{exampleblock}\pause
+\begin{block}{Nota}
+\justifying
+Si $\vec{a}$ y $\vec{b}$ son vectores del plano $XY$, entonces los podemos escribir como $\vec{a}=(a_1,a_2,0)$, $\vec{b}=(b_1,b_2,0)$ y \pause $$\vec{a}\times\vec{b}=0\hat{i}-0\hat{j}+\begin{vmatrix}a_1&a_2\\b_1&b_2\end{vmatrix}\hat{k}=(0,0,a_1b_2-a_2b_1)$$ \pause que corresponde a un vector paralelo al eje $Z$.
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+    \vspace{-0.5cm}
+\begin{block}{Nota}
+\justifying
+$\vec{a}\times\vec{b}$ apunta en una dirección perpendicular a $\vec{a}$ y $\vec{b}$ que está dada por la \textbf{regla de la mano derecha}: si los dedos de su mano derecha se curvan en la dirección (en un ángulo menor que $\pi$) desde $\vec{a}$ hacia $\vec{b}$ entonces su dedo pulgar apunta en la dirección de $\vec{a}\times\vec{b}$.
+\vspace{0.2cm}
+\begin{center}
+\visible<6>{\includegraphics[scale=0.5]{ProdCruz1.png}}
+\end{center}
+
+\end{block}
+
+\end{minipage}
+
+
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Advierta que el el producto cruz de dos vectores es nuevamente un vector, pero que el producto punto de dos vectores es un número real.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

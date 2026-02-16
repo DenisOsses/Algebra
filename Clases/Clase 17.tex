@@ -1,0 +1,334 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 17}
+\subtitle{Vectores}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+6]\today}
+%\date{\today}
+\date{14 de mayo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Representar geométricamente vectores y sus operaciones. 
+    \item Aplicar las propiedades fundamentales de las operaciones de vectores para la resolución de problemas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Segmento dirigido}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+    \begin{center}
+    \includegraphics[scale=0.5]{vector1}
+\end{center}\pause
+
+\begin{block}{Definición}\pause
+\justifying
+Dados dos puntos $A$ y $B$ en el plano o en el espacio denotamos por $(A,B)$ al \textbf{segmento dirigido} con punto inicial $A$ y punto final $B$.
+\end{block}
+\end{minipage}\pause 
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-2.5cm}
+El segmento dirigido anterior tiene una \textbf{dirección}, \pause que está dada por la recta que determinan los puntos $A$ y $B$, \pause tiene un \textbf{sentido} dado, \pause que identifica en ellos un punto inicial y un punto final. \pause Podemos observar que $(A,B)\neq (B,A)$ (puesto que tienen sentidos contrarios). \pause Los segmentos dirigidos tienen también asociado un valor numérico o \textbf{magnitud}, \pause dado por la distancia entre los puntos $A$ y $B$. \pause 
+
+\vspace{0.1cm}
+El concepto de vector es algo un poco más general que el de segmento dirigido, \pause en relación a que ``\textbf{dos segmentos dirigidos que coincidan en dirección, sentido y magnitud, representan el mismo vector}". \pause Es fundamental comprender esta idea en el análisis vectorial.
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Vectores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+    Lo anterior se formaliza matemáticamente considerando el conjunto de \underline{todos} los segmentos dirigidos del plano o el espacio y estableciendo la siguiente relación $\uparrow$ entre ellos: \pause $$(A,B)\uparrow (C,D)$$ si los segmentos dirigidos $(A,B)$ y $(C,D)$ tienen igual magnitud, dirección y sentido. \pause
+
+\vspace{0.1cm}
+
+\begin{block}{Definición}\pause
+\justifying El \textbf{vector} $\vec{p}$ cuyo punto inicial es $O$ (origen) y final es $P$, corresponde al ``\textbf{representante}" de todos los segmentos dirigidos $(A,B)$ que tienen la misma dirección, sentido y magnitud que el segmento dirigido $(O,P)$, \pause o sea: $$\vec{p}=[(O,P)]=\{[A,B]:(A,B)\uparrow(O,P)\}.$$
+\end{block}
+\end{minipage}\pause 
+\hspace{0.3cm}\begin{minipage}[t]{0.5\linewidth}
+Todos los vectores del siguiente esquema son idénticos ya que tienen igual magnitud, dirección y sentido. El vector $\vec{p}$ es el representante de todos ellos.
+
+\begin{center}
+\visible<7>{\includegraphics[scale=0.45]{vector2}}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Suma de vectores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Nota 1}\pause
+\justifying
+El \textbf{vector nulo} $\vec{0}$ corresponde al representante de todos los segmentos dirigidos que comienzan en el punto $A$ y terminan en $A$.
+\end{block}\pause
+
+\begin{block}{Nota 2}\pause
+\justifying
+El segmento dirigido que comienza en el origen $O$ y termina en el punto $P$, es decir el vector $\vec{p}$ suele escribirse como $$\vec{p}=\overrightarrow{OP}$$ y se denomina \textbf{vector posición} del punto $P$.
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición}
+\justifying
+Consideremos dos vectores $\vec{a}$ y $\vec{b}$. El \textbf{vector suma o adición geométrica}, $\vec{a}+\vec{b}$, es aquel que resulta al unir el origen con el vértice del paralelógramo formado por $\vec{a}$ y $\vec{b}$.
+\end{block}
+
+\begin{center}
+  \visible<6>{\includegraphics[scale=0.5]{sumavector}} 
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Ponderación de vectores y propiedades}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+    \begin{block}{Definición}
+\justifying
+La \textbf{ponderación} del vector $\vec{a}$ por el escalar (número real) $\alpha$ es definida como el nuevo vector $\alpha\vec{a}$ que tiene las siguientes características: si $\alpha>0$ entonces $\alpha\vec{a}$ mantiene el sentido del vector $\vec{a}$, y si $\alpha<0$ entonces $\alpha\vec{a}$ tiene sentido opuesto al vector $\vec{a}$. Si $\alpha=0$ entonces $0\vec{a}=\vec{0}$. 
+\end{block}\pause 
+
+\begin{center}
+  \visible<2-14>{\includegraphics[scale=0.42]{pondvector} } 
+\end{center}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+\begin{block}{Propiedades}\pause
+\justifying
+El conjunto $V$ de todos los vectores geométricos tiene las siguientes propiedades respecto a la adición y ponderación antes definidas: $\forall~\vec{a}, \vec{b}, \vec{c}\in V$ y $\alpha,\beta\in\mathbb{R}$. \pause
+
+\vspace{0.3cm}
+\tiny{
+\begin{multicols}{2}
+\begin{enumerate}[<+->]
+\justifying
+    \item $\vec{a}+\vec{b}\in V$. (Clausura de la adición)
+    \item $(\vec{a}+\vec{b})+\vec{c}=\vec{a}+(\vec{b}+\vec{c})$. (Asociatividad)
+    \item $\vec{a}+\vec{O}=\vec{a}$. (Elemento neutro aditivo)
+    \item $\vec{a}+(-\vec{a})=\vec{0}$. (Inverso aditivo)
+    \item $\vec{a}+\vec{b}=\vec{b}+\vec{a}$. (Conmutatividad)
+    \item $\alpha\vec{a}\in V$. (Clausura de la ponderación)
+    \item $1\vec{a}=\vec{a}$. (Neutro de la ponderación)
+    \item $\alpha(\beta\vec{a})=(\alpha\beta)\vec{a}$. (Asociatividad)
+    \item $(\alpha+\beta)\vec{a}=\alpha\vec{a}+\beta\vec{a}.$ (Distributividad)
+    \item $\alpha(\vec{a}+\vec{b})=\alpha\vec{a}+\alpha\vec{b}$. (Distributividad)
+\end{enumerate}
+\end{multicols}}
+
+\end{block}
+\end{minipage}
+
+
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Resta de vectores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+A partir de la cuadrícula dada, determine los vectores $2\vec{u}+\vec{v}$ y $\vec{v}-\dfrac{1}{3}\vec{u}$. 
+\begin{center}
+    \includegraphics[scale=0.4]{EJ1}
+\end{center}
+\end{exampleblock}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición}
+\justifying
+La \textbf{resta} de los vectores $\vec{a}$ y $\vec{b}$ se define como $$\vec{a}-\vec{b}=\vec{a}+(-\vec{b}).$$
+\begin{center}
+\visible<2>{\includegraphics[scale=0.5]{resta}}
+\end{center}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+%\subsection{Resta de vectores}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.7cm}
+\begin{block}{Definición}\pause
+\justifying
+Dados los puntos $A$ y $B$ del plano o el espacio, tenemos que el vector que comienza en $A$ y termina en $B$ se puede escribir como una resta de los vectores posición de $A$ y $B$, \pause es decir $$\overrightarrow{AB}=\overrightarrow{OB}-\overrightarrow{OA}=\vec{b}-\vec{a}.$$ \pause 
+
+\vspace{-0.4cm}
+\begin{center}
+\visible<4-5>{\includegraphics[scale=0.06]{resta2}}
+\end{center}
+\end{block}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Sean $A,B,C,D,E$ y $F$, en ese orden, los vértices de un hexágono regular. Demostrar que $$\overrightarrow{AB}+\overrightarrow{AC}+\overrightarrow{AD}+\overrightarrow{AE}+\overrightarrow{AF}=3\overrightarrow{AD}$$
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Es fundamental comprender que un vector representa a infinitos objetos que tienen las mismas características: sentido, dirección y magnitud.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

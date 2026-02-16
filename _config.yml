@@ -1,0 +1,12 @@
+title: Álgebra
+author: Denis Osses
+logo: FIC-UAI.png
+execute:
+  execute_notebooks: force
+html:
+  use_issues_button: true
+  use_repository_button: true
+repository:
+  url: https://github.com/DenisOsses/Algebra
+  path_to_book: .
+  branch: main

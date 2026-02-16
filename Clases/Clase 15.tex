@@ -1,0 +1,256 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 15}
+\subtitle{Funciones inversas y Ecuaciones trigonométricas.}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{2 de mayo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Utilizar las propiedades de las funciones trigonométricas inversas.
+    \item Resolver ecuaciones trigonométricas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Funciones trigonométricas inversas. Arcoseno}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.2cm}
+
+Es simple notar, a partir de los gráficos de las funciones seno, coseno y tangente, que ninguna de ellas es inyectiva, por lo que no tienen inversas. \pause Sin embargo, si restringimos adecuadamente el dominio de cada una, pueden ser inyectivas y, de esta forma, ser invertibles.\pause
+
+\begin{block}{Función inversa de seno}
+\justifying
+Consideremos $$f:\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\mapsto[-1,1]~~,~~f(x)=\sen(x).$$ En este intervalo $\sen(x)$ es biyectiva y tiene inversa. Su inversa se denomina \textbf{arcoseno} de $x$. \pause Anotamos $$f^{-1}:[-1,1]\mapsto\left[-\frac{\pi}{2},\frac{\pi}{2}\right]~~,~~f^{-1}(x)=\arcsen(x).$$
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+
+\begin{center}
+   \visible<5>{\includegraphics[scale=0.8]{arcoseno}}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Arcocoseno}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.3cm}
+
+\begin{block}{Función inversa de coseno}
+\justifying
+Consideremos $$f:[0,\pi]\mapsto[-1,1]~~,~~f(x)=\cos(x).$$ En este intervalo $\cos(x)$ es biyectiva y tiene inversa. Su inversa se denomina \textbf{arcocoseno} de $x$. \pause Anotamos $$f^{-1}:[-1,1]\mapsto[0,\pi]~~,~~f^{-1}(x)=\arccos(x).$$
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+
+\begin{center}
+    \visible<3>{\includegraphics[scale=0.7]{arcocoseno}}
+\end{center}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Arcotangente}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.5cm}
+
+\begin{block}{Función inversa de tangente}
+\justifying
+Consideremos $$f:\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\mapsto\mathbb{R}~~,~~f(x)=\tan(x).$$ En este intervalo $\tan(x)$ es biyectiva y tiene inversa. Su inversa se denomina \textbf{arcotangente} de $x$. \pause Anotamos $$f^{-1}:\mathbb{R}\mapsto\left]-\frac{\pi}{2},\frac{\pi}{2}\right[~~,~~f^{-1}(x)=\arctan(x).$$
+\end{block}\pause
+
+\vspace{0.2cm}
+\begin{center}
+    \visible<3-5>{\includegraphics[scale=0.7]{arcotangente}}
+\end{center}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Determine el valor exacto de $\arcsen\left(\dfrac{1}{2}\right)$, $\arctan\left(-1\right)$, $\arccos\left(\cos\dfrac{\pi}{3}\right)$ y $\tan\left(\arcsen\dfrac{\sqrt{2}}{2}\right)$.
+\end{exampleblock}\pause
+
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Pruebe que $\forall~x\in[0,1]$: $$\arccos\left(\frac{1-x^2}{1+x^2}\right)=\arcsen\left(\frac{2x}{1+x^2}\right)$$
+\end{exampleblock}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Ecuaciones trigonométricas}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.5cm}
+
+\begin{block}{Definición}
+\justifying
+Una \textbf{ecuación trigonométrica} es una expresión de la forma $f(x)=0$ donde $f$ es una combinación de funciones trinométricas, para las cuales debemos encontrar los ángulos $x\in\mathbb{R}$ que satisfagan esta ecuación. Lo esencial para resolverlas es recordar la periodicidad de ellas.
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Determine todas las soluciones de las ecuaciones dadas:
+\begin{enumerate}
+\justifying
+    \item $\sen(x)=0$.
+    \item $2\cos(x)-1=0$.
+    \item $\sen^2(x)=2\sen(x)+3$.
+\end{enumerate}
+\end{exampleblock}
+
+\end{minipage}
+
+\end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Para abordar y comprender correctamente las inversas triginométricas, debe necesariamente tener un manejo adecuado de las funciones trigonométricas básicas.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

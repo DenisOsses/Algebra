@@ -1,0 +1,256 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 9}
+\subtitle{Sumatorias}
+\author{Profesor: Denis Osses}
+% \date{5 y \AdvanceDate[+3]\today}
+%\date{\today}
+\date{31 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Definir y calcular sumas aplicando sus propiedades.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Sumatorias. Propiedades}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+\begin{block}{Definición}
+\justifying
+Considere la sucesión $\{f(k)\}_{k\in\mathbb{N}}=\{a_k\}_{k\in\mathbb{N}}$. La suma de los $n$ primeros términos de esta sucesión se denomina \textbf{sumatoria} de tales términos. \pause Anotamos $$\sum_{k=1}^n a_k=a_1+a_2+\cdots+a_n.$$ \pause Notamos que $$\sum_{k=1}^1 a_k=a_1~~,~~\sum_{k=1}^{n+1} a_k=\left(\sum_{k=1}^{n}a_k\right)+a_{n+1}.$$
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+  \justifying
+  \vspace{-0.5cm}
+\begin{block}{Propiedades iniciales}
+\justifying
+\begin{enumerate}[<+->]
+\justifying
+    \item $\displaystyle\sum_{k=1}^{n}c=\underbrace{c+c+c+\cdots+c}_{n~\text{veces}}=nc,$ donde $c$ es constante.
+    \item $\displaystyle\sum_{k=1}^{n}k=1+2+3+\cdots+n=\frac{n(n+1)}{2}$.
+    \item $\displaystyle\sum_{k=1}^{n}k^2=1^2+2^2+3^2+\cdots+n^2=\frac{n(n+1)(2n+1)}{6}$.
+    \item $\displaystyle\sum_{k=1}^{n}k^3=1^3+2^3+3^3+\cdots+n^3=\frac{n^2(n+1)^2}{4}$.
+\end{enumerate}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Propiedades}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+\begin{block}{Sumas importantes}
+\justifying
+\begin{enumerate}[<+->]
+\justifying
+    \item \textbf{Aritmética}: $\displaystyle\sum_{k=1}^{n}\left(a+kd\right)=an+d\cdot\frac{n(n+1)}{2}$, donde $a,d$ son constantes.
+    \item \textbf{Geométrica}: $\displaystyle\sum_{k=1}^{n}r^{k}=r\cdot\dfrac{1-r^n}{1-r}$, si $r\neq1$.
+    \item \textbf{Telescópica}:  $\displaystyle\sum_{k=m}^{n}(a_{k}-a_{k+1})=a_{m}-a_{n+1},$ con $ 1 \leq m\leq n$
+\end{enumerate}
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.8cm}
+\begin{block}{Propiedades}
+\justifying
+\begin{enumerate}[<+->]
+\item \textbf{Linealidad}: $\displaystyle\sum_{k=1}^{n}(a_{k}+b_{k})=\displaystyle\sum_{k=1}^{n}a_{k}+\displaystyle\sum_{k=1}^{n}b_{k}$
+\item \textbf{Asociatividad}: $\displaystyle\sum_{k=1}^{n}a_{k}=\displaystyle\sum_{k=1}^{m}a_{k}+\displaystyle\sum_{k=m+1}^{n}a_{k} \hspace{0,1 cm}, \ \mbox{con} \ 1 \leq m < n$.
+\item \textbf{Factorización}: $\displaystyle\sum_{k=1}^{n}ca_{k}=c\displaystyle\sum_{k=1}^{n}a_{k}, \ \mbox{con} \ c \ \mbox{constante real}.$
+\item \textbf{Cambio de índice}: $\displaystyle\sum_{k=m}^{n}a_{k}=\displaystyle\sum_{k=m-l}^{n-l}a_{k+l}=\displaystyle\sum_{k=m+l}^{n+l}a_{k-l}, \ \mbox{con} \ l \leq m<n$.  
+
+\end{enumerate}
+\vspace{-0.2cm}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Ejemplos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.4cm}
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Calcule: $\displaystyle\sum_{k=11}^{20}(2-k)$
+\end{exampleblock}\pause
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Pruebe que: $\displaystyle\sum_{k=3}^{20}\ln\left(\frac{k}{k+1}\right)=\ln(3)-\ln(21)$.
+\end{exampleblock}\pause
+
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Demuestre la fórmula de suma geométrica generalizada: $\displaystyle\sum_{k=m}^{n}r^k=\frac{r^m-r^{k+1}}{1-r}$, $r\neq1$.
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.7cm}
+\begin{exampleblock}{Ejemplo 4}
+\justifying
+Calcular $\displaystyle\sum_{k=1}^{100}a_{k}$, donde $\{a_{k}\}_{k\in\mathbb{N}}$ es la sucesi\'on definida por:
+$$a_{k} = \; \left\{\begin{array}{ccl}
+\displaystyle\frac{2^{k}+(-2)^{k}}{3^{k+1}} & \mbox{si}& 1\leq k\leq 50\\
+\\
+\sqrt{k+2}-\sqrt{k} & \mbox{si}& k>50 \\
+\end{array}\right.$$
+\end{exampleblock}\pause
+
+\begin{exampleblock}{Ejemplo 5}
+\justifying
+Considere la sucesión $\{a_n\}_{n \in \mathbb{N}}$, definida por $a_n=n^2+n$.  Escriba la suma  $a_{2}+a_{4}+a_{6}+\cdots+a_{200}$ \ usando el símbolo de sumatoria $\sum$ y calcule el valor de dicha suma.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Sumatorias}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+\begin{exampleblock}{Ejemplo 6}
+\justifying
+A una paciente se le administran 10 unidades de cierta medicina diariamente. El organismo, después de 24 horas, elimina el $20\%$ de la
+medicina que se tiene en el cuerpo cada día. La droga es peligrosa para el organismo si se acumulan muchas unidades en el cuerpo; de hecho, es mortal si en el cuerpo hay 60 unidades de medicina o más. Determine si es posible administar indefinidamente la medicina a la paciente
+sin correr riesgo de muerte
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Las sumatorias son adiciones de elementos de una sucesión generada por una patrón o fórmula $f(k)=a_k$. Su símbolo $\sum$ es una forma abreviada de escribir dicha suma.
+%   \end{itemize}
+
+% \end{frame}
+
+% % %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

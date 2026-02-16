@@ -1,0 +1,313 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 19}
+\subtitle{Combinación lineal. Vectores paralelos. Producto Punto}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{23 de mayo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Aplicar las propiedades fundamentales de las operaciones de vectores para la resolución de problemas.
+    \item Definir los conceptos de paralelismo entre vectores y producto punto.
+    % \item Reconocer los elementos de las diferentes representaciones de rectas y determinar sus ecuaciones. Usar las distintas representaciones de rectas y sus propiedades para resolver problemas geométricos.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Combinación lineal}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición}
+\justifying
+Un vector $\vec{v}$ es \textbf{combinación lineal} de los vectores $\vec{u_1}$ y $\vec{u_2}$ si existen contantes $\alpha,\beta\in\mathbb{R}$ tales que $$\vec{v}=\alpha\vec{u_1}+\beta\vec{u_2}.$$
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Sean $\vec{u}=(3,1)$ y $\vec{v}=(1,2)$. Determine si el vector $\vec{w}=(-1,3)$ es combinación lineal de $\vec{u}$ y $\vec{v}$.
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.2cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+   \visible<3>{\includegraphics[scale=0.8]{Vect1.png}}
+\end{center}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Vectores paralelos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Definición}
+\justifying
+Decimos que los vectores $\vec{u}$ y $\vec{v}$ son \textbf{paralelos} si tienen la misma dirección. \pause Matemáticamente esto significa que un vector es un ponderado o múltiplo del otro, es decir, existe un número $\lambda\in\mathbb{R}$, $\lambda\neq0$, tal que $$\vec{u}=\lambda\vec{v}.$$
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo 2}
+Decida si los vectores $\vec{u}=(-1,2)$ y $\vec{v}=(4,-8)$ son paralelos o no.
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.3cm}\begin{minipage}[t]{0.5\linewidth}
+% \vspace{0.2cm}
+% Observemos la recta $L$ (del plano o espacio) en la figura siguiente: \pause
+
+% \begin{center}
+%     \visible<5>{\includegraphics[scale=0.14]{EcVecRecta}}
+% \end{center}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Producto punto}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.7cm}
+\begin{block}{Definición}
+\justifying
+Sean $\vec{a}=(a_1,a_2,a_3)$ y $\vec{b}=(b_1,b_2,b_3)$ vectores en el espacio. \pause El \textbf{producto punto} o \textbf{producto escalar} de $\vec{a}$ con $\vec{b}$ es el número real $\vec{a}\cdot\vec{b}$ definido por \pause $$\vec{a}\cdot\vec{b}=a_1b_1+a_2b_2+a_3b_3=\sum_{i=1}^3a_ib_i.$$
+\end{block}\pause 
+Así, para encontrar el producto punto de $\vec{a}$ con $\vec{b}$ se multiplican las coordenadas correspondientes y se suman. \pause El resultado no es un vector, es un número real. \pause 
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Calcule el producto punto entre $\vec{a}=(1,2,3)$ y $\vec{b}=(-1,0,1)$.
+\end{exampleblock}
+\end{minipage}\pause 
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\begin{block}{Propiedades}\pause
+\justifying Si $\vec{a}$, $\vec{b}$ y $\vec{c}$ son vectores en el plano o en el espacio y $\alpha\in\mathbb{R}$, entonces \pause
+\begin{enumerate}[<+->][{(a)}]
+\justifying
+    \item $\vec{a}\cdot\vec{a}=||\vec{a}||^2$.
+    \item $\vec{a}\cdot \vec{b}=\vec{b} \cdot \vec{a}$.
+    \item $\vec{a}\cdot (\vec{b}+\vec{c})=\vec{a}\cdot \vec{b}+\vec{a}\cdot \vec{c}$.
+    \item $\alpha(\vec{a}\cdot \vec{b})=(\alpha \vec{a})\cdot \vec{b}=\vec{a}\cdot (\alpha \vec{b})$.
+    \item $\vec{0}\cdot\vec{a}=0$.
+    \item $\vec{a}\cdot \vec{b}=\frac{1}{2}( ||\vec{a}||^2+||\vec{b}||^2-||\vec{b}-\vec{a}||^2)$
+\end{enumerate}
+\end{block}
+
+\end{minipage}
+
+\end{frame}
+
+% %---------------------------------------------------------------------
+% \subsection{Ángulo entre vectores}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+% \justifying
+% \footnotesize
+
+% \begin{minipage}[t]{0.5\linewidth}
+% \vspace{-0.5cm}
+% \begin{center}
+%     \includegraphics[scale=0.7]{AnguloVect.png}
+% \end{center} \pause
+% El producto punto $\vec{a}\cdot \vec{b}$ se puede interpretar geométricamente en términos del ángulo $\theta$ entre $\vec{a}$ y $\vec{b}$, que se define como el ángulo entre los vectores posición asociados a ellos. 
+% \end{minipage}\pause 
+% \hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+% \vspace{-0.5cm}
+% \begin{block}{Teorema}
+% \justifying
+% Si $\theta$ es el ángulo entre $\vec{a}$ y $\vec{b}$ entonces $$\color{red}\boxed{\color{black}\vec{a}\cdot\vec{b}=||\vec{a}||\cdot||\vec{b}||\cos(\theta).}$$ \pause
+% Además, $$\color{red}\boxed{\color{black}\cos(\theta)=\frac{\vec{a}\cdot\vec{b}}{||\vec{a}||\cdot||\vec{b}||}.}$$
+% \end{block}\pause
+% \begin{block}{Nota}
+% \justifying
+% Si $\theta=0$ o $\theta=\pi$ entonces los vectores son paralelos y $\vec{a}\cdot\vec{b}=\pm||\vec{a}||\cdot||\vec{b}||$, respectivamente.
+% \end{block}
+% \end{minipage}
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% \subsection{Ecuación vectorial de la recta}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+% \justifying
+% \footnotesize
+
+% \begin{minipage}[t]{0.5\linewidth}
+% $P_0$ y $P_1$ son puntos fijos de la recta $L$ y $P$ es un punto variable (móvil sobre la recta). \pause Notamos que $$\vec{r}=\vec{p_0}+\overrightarrow{P_0P}.$$ \pause Por otro lado, el vector $\overrightarrow{P_0P}$ es paralelo con $\vec{v}$, es decir $\overrightarrow{P_0P}=\lambda\vec{v}$ para algún $\lambda\in\mathbb{R}.$ \pause Luego $${\color{red}\boxed{\color{black}\vec{r}=\vec{p_0}+\lambda\vec{v}}}$$ \pause es conocida como la \textbf{ecuación vectorial de la recta} en el plano o el espacio, \pause que pasa por el punto $P_0$ y sigue la dirección del vector $\vec{v}$ (\textbf{vector director} de la recta).
+% \end{minipage} \pause
+% \hspace{0.3cm}\begin{minipage}[t]{0.5\linewidth}
+% \begin{block}{Nota 1}
+% \justifying
+% El vector director $\vec{v}$ puede ser cualquier vector que siga o indique la dirección de la recta $L$; así que no es necesario que esté explícitamente sobre dicha recta, basta con un vector paralelo a ella.
+% \end{block}\pause 
+
+% \begin{block}{Nota 2}
+% \justifying
+% Podemos visualizar la ecuación de la recta en el plano con punto móvil $P$ y vector dirección $\vec{v}$ en el siguiente enlace de \href{https://www.geogebra.org/m/Tn8n4Q5a}{\textbf{Geogebra}} y el siguiente \href{https://www.geogebra.org/m/R28FMcuF}{\textbf{enlace}} para la recta en el espacio.
+% \end{block}
+% \end{minipage}
+
+% \end{frame}
+
+% %---------------------------------------------------------------------
+% \subsection{Ecuación paramétrica y cartesiana de la recta}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+% \justifying
+% \footnotesize
+
+% \begin{minipage}[t]{0.5\linewidth}
+% Si escribimos los vectores anteriores en coordenadas: \pause $\vec{r}=(x,y,z)$, $\vec{p_0}=(x_0,y_0,z_0)$, \newline $\vec{v}=(a,b,c)$, \pause entonces podemos deducir la ecuación \textbf{paramétrica} de la recta \begin{eqnarray*}x&=&x_0+a\lambda\\ y&=&y_0+b\lambda~~~~~~~~,~~~~\lambda\in\mathbb{R}\\ z&=&z_0+c\lambda\end{eqnarray*} \pause y la ecuación \textbf{cartesiana} de la recta \pause $$\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}\quad,\quad a,b,c\neq0$$
+% \end{minipage} \pause
+% \hspace{0.3cm}\begin{minipage}[t]{0.5\linewidth}
+% \vspace{-0.3cm}
+% \begin{exampleblock}{Ejemplo 3}
+% \justifying
+% Determinar en cada caso un vector director para la recta indicada y una ecuación vectorial de esa recta que: \pause
+
+% \begin{enumerate}[<+->]
+% \justifying
+%     \item Contiene a los puntos $A(3,9)$ y $B(-5,1)$.
+%     %\item Recta que contiene al punto $C(12,1)$ y es paralela a la recta $(x,y)=(1,1)+\lambda(4,-5)$, $\lambda \in \mathbb{R}$.
+%     %\item Recta que contiene al punto $C(0,4)$ y es perpendicular a la recta $(x,y)=(7,-1)+\lambda(3,2)$, $\lambda \in\mathbb{R}$.
+%     \item Contiene a los dos puntos $D(1,-2,1)$ y $E(1,-1,1)$.
+%     \item Contiene al punto $G(0,1,-2)$ y es paralela a la recta $(x,y,z)=(2,0,1)+\lambda(3,1,0)$, $\lambda \in\mathbb{R}$.
+%     \item Pasa por $P(1,0,1)$ y que corta a la recta de ecuación vectorial $\vec{r}=(1, 2,-1)+\lambda(2, 1,-2)$, en los puntos situados a dos unidades de distancia de $P_0(1, 2,-1)$.
+% \end{enumerate}
+
+% \end{exampleblock}
+% \end{minipage}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item La definiciones para vectores en $\mathbb{R}^3$ y $\mathbb{R}^2$ son análogas. En $\mathbb{R}^3$, basta con anular la tercera coordenada en las expresiones anteriores para obtener las definiciones en $\mathbb{R}^2$.
+%       \item Un buen ejercicio es probar que la ecuación vectorial de la recta en el plano es equivalente a la ecuación lineal en el plano.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

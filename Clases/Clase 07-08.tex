@@ -1,0 +1,293 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clases 7-8}
+\subtitle{Sucesiones. Principio de inducción. Ejemplos}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+\date{24 y 26 de marzo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Reconocer diferentes tipos de sucesiones. 
+    \item Aplicar el principio de inducción.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Sucesiones}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+\vspace{-0.4cm}
+ \begin{block}{Definición}
+\justifying
+ Sea $A$ un conjunto dado. Una \textbf{sucesión} es una función  de la forma $f: D \subseteq \mathbb{N} \to A$. \pause Así, para cada $n \in D$, $f(n)$ es un elemento de A. \pause Usualmente escribimos $f(n):=f_n$ o $f(n):=a_n$ para referirnos al término general de la sucesión y $\{f_n\}_{n\in D}$ para la sucesión.
+\end{block}\pause 
+
+ \begin{exampleblock}{Ejemplo 1}
+\justifying
+Si $A=\mathbb{R}$ entonces diremos que $\{f_n\}_{n\in D}$ es una sucesión real.\pause
+
+\begin{enumerate}[<+->]
+ \justifying
+     \item $f:\mathbb{N}\to\mathbb{R}$ dada por $f(n)=\dfrac1{n}$ o $\left\{\dfrac1{n}\right\}_{n\in\mathbb{N}}$.
+     \item $f:\{1,2,3,4,5\}\to\mathbb{R}$ dada por $f(n)=(-1)^n$ o $\{-1,1\}$.
+     %\item $A=\left\{y\in\mathbb{R}:y=f(n)=\dfrac{n-1}{n+1}, n\in\mathbb{N}\right\}$.
+ \end{enumerate}
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+ \begin{exampleblock}{Ejemplo 2}
+\justifying
+Si $A=\{p: p~\text{es una proposición}\}$, entonces $\{f_n\}$ es una sucesión de proposiciones, es decir, una función proposicional cuyo dominio es un subconjunto de $\mathbb{N}$.\pause
+
+ \begin{enumerate}[<+->]
+ \justifying
+     \item $f(n): n^2+n$ es par.
+     \item $\displaystyle \phi(n): 1+2+3+\cdots+n=\frac{n(n+1)}{2}$.
+     \item $q(n): \left(1+\dfrac1{n}\right)^{n}>2$.
+ \end{enumerate}
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Sucesiones importantes}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.4cm}
+\begin{block}{Definición}
+\justifying
+Sean $d\in\mathbb{R}$ y $a\in\mathbb{R}$. Una \textbf{progresión aritmética} (P.A.) de primer término $a$ y diferencia $d$ es una sucesión $\{a_n\}_{n\in\mathbb{N}}$ tal que \begin{eqnarray*}a_1&=&a\\ a_{n+1}&=&a_n+d~,~n\in\mathbb{N} \end{eqnarray*}\pause Lo que caracteriza a una P.A. es que la diferencia de dos términos consecutivos de la sucesión es siempre constante igual a $d$.
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo}
+\justifying
+La sucesión $1,3,5,7,9,11,\ldots$ es una P.A. de primer término $a=1$ y diferencia $d=2$. 
+
+\end{exampleblock}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.4cm}
+\begin{block}{Definición}
+\justifying
+Sean $r\in\mathbb{R}-\{0\}$ y $a\in\mathbb{R}$. Una \textbf{progresión geométrica} (P.G.) de primer término $a$ y razón $r$ es una sucesión $\{a_n\}_{n\in\mathbb{N}}$ tal que \begin{eqnarray*}a_1&=&a\\ a_{n+1}&=&a_n\cdot r~,~n\in\mathbb{N} \end{eqnarray*} \pause Lo que caracteriza a una P.G. es que la razón de dos términos consecutivos de la sucesión es siempre constante igual a $r$.
+\end{block}\pause
+
+\begin{exampleblock}{Ejemplo}
+\justifying
+La sucesión $1,\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\ldots$ es una P.G. de primer término $a=1$ y razón $r=\frac{1}{2}$.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+% %---------------------------------------------------------------------
+% %\subsection{Sucesiones importantes}
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+
+% \begin{block}{Definición}\pause
+% \justifying
+% Una sucesión $\{a_n\}_{n\in\mathbb{N}}$ es una \textbf{progresión armónica} (P.H.) de primer término $a$ si existe $d\in\mathbb{R}$ tal que \begin{eqnarray*}a_1&=&a\\ a_{n+1}&=&\frac{a_n}{1+a_n\cdot d}~,~n\in\mathbb{N} \end{eqnarray*}
+% \end{block}\pause
+
+% \begin{exampleblock}{Ejemplo}
+% \justifying
+% La sucesión $1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots$ es una P.H. de primer término $a=1$, con $d=1$.
+% \end{exampleblock}
+
+% \end{frame}
+
+
+%---------------------------------------------------------------------
+\subsection{Primer principio de inducción}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+
+ \begin{block}{Definición}
+\textbf{Primer Principio de Inducción}
+\vspace{0.1cm}
+\justifying
+Sea $\phi(n)$ una función proposicional. Entonces $$\big[\phi(1)\wedge\forall~n\in\mathbb{N}: \big(\phi(n)\Rightarrow\phi(n+1)\big)\big]\Rightarrow\forall~n\in\mathbb{N}:\phi(n)$$\pause
+Este principio nos dice que para probar una proposición $\phi(n)$ para todo $n\in\mathbb{N}$, basta con demostrar dos cosas:\pause
+
+\begin{enumerate}[<+->]
+\justifying
+    \item $\phi(1)$.
+    \item $\forall~n\in\mathbb{N}: \phi(n)\Rightarrow\phi(n+1)$.
+\end{enumerate}
+
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Demuestre las siguientes proposiciones:\pause
+\begin{enumerate}[<+->]
+    \item $\forall~n \in \mathbb{N}: n(n+1)$ es par.
+    \item $\forall~n \in \mathbb{N}: n^3-n$ es divisible por 6.
+    \item $\forall~n\in\mathbb{N}: 1+2+3+\ldots+n=\dfrac{n(n+1)}{2}.$
+    \item $\forall~n \in \mathbb{N}: 4^n\geq 3n+1$.
+\end{enumerate}
+
+\end{exampleblock}
+
+\end{minipage}
+
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Principio de inducción}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+  
+\begin{minipage}[t]{0.5\linewidth}
+  
+\begin{exampleblock}{Ejemplo 4}
+\justifying
+Demuestre que $$\forall~n\in\mathbb{N}:1+8+27+\cdots+n^3=\frac{n^2(n+1)^2}{4}.$$
+\end{exampleblock}\pause
+
+\begin{exampleblock}{Ejemplo 5}
+\justifying
+Demuestre que si $a_1=1$ y $a_n=2a_{n-1}+2^{n-1}$ para $n\geq2$, entonces para todo $n\in\mathbb{N}$ se tiene que $a_n=n2^{n-1}$.
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item El primer principio de inducción se utiliza solamente para proposiciones sobre $\mathbb{N}$, no $\mathbb{R}$.
+%       \item Utilizamos este principio principalmente para demostrar propiedades de divisibilidad, sumas, desigualdades (que involucren algún término natural) y fórmulas recursivas. 
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

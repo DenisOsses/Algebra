@@ -1,0 +1,248 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+
+% Document metadata
+\title{Clase 11}
+\subtitle{Teorema del binomio}
+\author{Profesor: Denis Osses}
+%\date{12 y \AdvanceDate[+3]\today}
+%\date{\today}
+\date{16 de abril de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Utilizar y demostrar propiedades de los coeficientes binomiales.
+    \item Aplicar el Teorema del binomio.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Coeficientes binomiales}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+  
+Al desarrollar o expandir las potencias de binomio $(a+b)^n$, con $n\in\mathbb{N}_0$, ¿es posible obtener algún patrón numérico? \pause
+
+\begin{eqnarray*}(a+b)^0 &=& 1\cdot a^0b^0 \pause\\ (a+b)^1 &=& 1\cdot a^1b^0+1\cdot a^0b^1 \pause \\ (a+b)^2 &=& 1\cdot a^2b^0+2\cdot a^1b^1+1\cdot a^0b^2 \pause \\ (a+b)^3 &=& 1\cdot a^3b^0+3\cdot a^2b^1+3\cdot a^1b^2+1\cdot a^0b^3 \pause \\ (a+b)^4 &=& 1\cdot a^4b^0+4\cdot a^3b^1+6\cdot a^2b^2+4\cdot a^1b^3+1\cdot a^0b^4\\  &\vdots&\end{eqnarray*}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Coeficientes binomiales}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+Los coeficientes numéricos de los términos $a^kb^{n-k}$, donde $k=0,1,\ldots,n$, corresponden a los números del \textbf{triángulo de Pascal} \pause
+
+\begin{center}
+    \includegraphics[scale=1]{pascal}
+\end{center}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Coeficientes binomiales}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+
+Los coeficientes numéricos que aparecen en la expansión de las potencias del binomio \pause 
+
+$$(a+b)^n=\underbrace{(a+b)(a+b)(a+b)\cdots(a+b)}_{n~\textrm{veces}}$$ \pause
+
+consisten en todos los productos posibles que pueden ser formados tomando una letra ($a$ o $b$) de cada factor $(a+b)$. \pause El número de maneras en que se puede formar el producto $a^kb^{n-k}$ es exactamente igual al número de maneras de elegir $k$ factores (de los $n$ posibles) que contribuyen una $a$, ya que el resto de los factores contribuye una $b$. \pause El número de maneras de elegir $k$ factores entre $n$ es $C(n,k)=\displaystyle {n\choose k}=\frac{n!}{k!\cdot(n-k)!}$. \pause Así
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Coeficientes binomiales}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\begin{eqnarray*}(a+b)^0 &=& {0\choose 0}a^0b^0  \pause\\ (a+b)^1 &=& {1\choose 1} a^1b^0+{1\choose 0}a^0b^1 \pause \\ (a+b)^2 &=& {2\choose 2} a^2b^0+{2\choose 1} a^1b^1+{2\choose 0} a^0b^2 \pause \\ (a+b)^3 &=& {3\choose 3}a^3b^0+{3\choose 2} a^2b^1+{3\choose 1}a^1b^2+{3\choose 0} a^0b^3 \pause \\ (a+b)^4 &=& {4\choose 4} a^4b^0+{4\choose 3}a^3b^1+{4\choose 2} a^2b^2+{4\choose 1} a^1b^3+{4\choose 0} a^0b^4\\ &\vdots&\end{eqnarray*}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Teorema del binomio}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+
+\begin{block}{Teorema del binomio}
+\justifying
+$\forall~n\in\mathbb{N}_0$ se cumple que $$(a+b)^n=\sum_{k=0}^n{n\choose k}a^kb^{n-k}.$$ 
+\end{block}\pause
+
+\begin{block}{Nota}
+\justifying
+Se tiene que para todo $k=0,1,2,\ldots, n$: $${n\choose n-k}={n\choose k}.$$
+\end{block}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+Así, aprovechando esta propiedad simétrica de los coeficientes binomiales, podemos reescribir el Teorema del binomio como: \pause $$(a+b)^n=\sum_{k=0}^n{n\choose k}a^kb^{n-k}=\sum_{k=0}^n{n\choose k}a^{n-k}b^{k}.$$ \pause
+
+\vspace{-0.3cm}
+\begin{block}{Nota}
+\justifying
+Una propiedad importante de los coeficientes binomiales es que $${n+1\choose k+1}={n\choose k}+{n\choose k+1}~~,~~k=0,1,2,\ldots,n-1.$$ \pause Esta propiedad nos da el resultado de la suma de dos coeficientes consecutivos en el triángulo de Pascal.
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Teorema del binomio}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+  \justifying
+  \footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Determine el coeficiente de $x^{10}$ en la expansión del binomio $(x-2)^{10}$.
+\end{exampleblock}\pause 
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Encuentre, si existe, el coeficiente que acompa\~{n}a a $x^{50}$ en el desarrollo de $\left(x^{2}-\displaystyle\frac{1}{x^{2}}\right)^{100}$.
+\end{exampleblock}
+
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Calcular el valor de 
+$$\displaystyle \sum_{k=1}^{701}\left(\begin{array}{c}
+701 \\
+k\end{array}\right)\frac{1}{7^{k-1}}.$$
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item El teorema del binomio es la generalización del ``cuadrado de binomio".
+%       \item El coeficiente binomial ${n\choose k}$ se puede entender como el número de subconjuntos con $k$ elementos escogidos de un conjunto con $n$ elementos.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

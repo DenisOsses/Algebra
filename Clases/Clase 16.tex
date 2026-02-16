@@ -1,0 +1,202 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+
+% Document metadata
+\title{Clase 16}
+\subtitle{Teoremas del seno y del coseno}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+2]\today}
+%\date{\today}
+\date{12 de mayo de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+    \item Utilizar los teoremas del seno y el coseno en la resolución de problemas.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Teoremas del seno y del coseno}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.5cm}
+\begin{block}{Teorema del seno}
+\justifying
+Si en un $\triangle ABC$, las medidas de los lados opuestos a los ángulos $\alpha$, $\beta$, $\gamma$ son respectivamente $a$, $b$, $c$, entonces: $$\frac{a}{\sen(\alpha)}=\frac{b}{\sen(\beta)}=\frac{c}{\sen(\gamma)}$$
+\end{block}\pause
+
+\begin{center}
+    \visible<2-4>{\includegraphics[scale=0.25]{TeoSen}}
+\end{center}
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.5cm}
+\begin{block}{Teorema del coseno}
+\justifying
+Si en un $\triangle ABC$, las medidas de los lados opuestos a los ángulos $\alpha$, $\beta$, $\gamma$ son respectivamente $a$, $b$, $c$, entonces: 
+
+\begin{center}
+    \begin{tabular}{c}
+        $a^2=b^2+c^2-2bc\cos(\alpha)$ \\
+        $b^2=a^2+c^2-2ac\cos(\beta)$ \\
+        $c^2=a^2+b^2-2ab\cos(\gamma)$
+    \end{tabular}
+\end{center}
+\end{block}\pause 
+
+\begin{center}
+    \visible<4>{\includegraphics[scale=0.6]{LeyCoseno}}
+\end{center}
+
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Ejemplos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.5cm}
+
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Dos excursionistas salen de su campamento al mismo tiempo, con rumbos $42^\circ$ NO y $20^\circ$ SE, respectivamente. Si cada uno de ellos camina a un promedio de 5 [km/h], ¿a qué distancia están después de 1 hora?
+\end{exampleblock}\pause
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Calcular el ángulo agudo que forman entre sí las diagonales de un rectángulo, si las longitudes de sus lados son 2.2 [m] y 1.4 [m].
+\end{exampleblock}
+
+\end{minipage}\pause
+\hspace{0.4cm}\begin{minipage}[t]{0.5\linewidth}
+\justifying
+\vspace{-0.5cm}
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+El ángulo de elevación de una torre CD desde un lugar A al Sur de ella es $30^\circ$ y desde un lugar B hacia el Oeste de A su ángulo de elevación es de $15^\circ$. Si $AB = a$ probar que la altura de la torre es $$\dfrac{a(2-\sqrt{3})}{\sqrt{12\sqrt{3}-20}}$$
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item El teorema del seno es utilizado para resolver problemas en los que se conocen dos ángulos del triángulo y un lado opuesto a uno de ellos. También se usa cuando conocemos dos lados del triángulo y un ángulo opuesto a uno de ellos.
+%       \item El teorema el coseno es una generalización del teorema de Pitágoras.
+%   \end{itemize}
+
+% \end{frame}
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

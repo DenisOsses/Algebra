@@ -1,0 +1,42 @@
+format: jb-book
+root: intro
+parts:
+  - caption: "Unidad 1: Lenguaje matemático"
+    chapters:
+    - file: Unidad1/Clase01
+    - file: Unidad1/Clase02
+    - file: Unidad1/Clase03
+    - file: Unidad1/Clase04
+    - file: Unidad1/Clase05
+    - file: Unidad1/Clase06
+    - file: Unidad1/Clase07-08
+    - file: Unidad1/Clase09
+    - file: Unidad1/Clase09-10
+    - file: Unidad1/Clase10
+    - file: Unidad1/Clase11
+  - caption: "Unidad 2: Trigonometría"
+    chapters:
+    - file: Unidad2/Clase12
+    - file: Unidad2/Clase13
+    - file: Unidad2/Clase14
+    - file: Unidad2/Clase15
+    - file: Unidad2/Clase16
+  - caption: "Unidad 3: Geometría analítica y vectorial"
+    chapters:
+    - file: Unidad3/Clase17
+    - file: Unidad3/Clase18
+    - file: Unidad3/Clase19
+    - file: Unidad3/Clase20
+    - file: Unidad3/Clase21
+    - file: Unidad3/Clase21-2
+    - file: Unidad3/Clase22
+    - file: Unidad3/Clase23
+    - file: Unidad3/Clase24
+  - caption: "Unidad 4: Números complejos y polinomios"
+    chapters:
+    - file: Unidad4/Clase25
+    - file: Unidad4/Clase26
+    - file: Unidad4/Clase27
+    - file: Unidad4/Clase28
+    - file: Unidad4/Clase29
+    - file: Unidad4/Clase30

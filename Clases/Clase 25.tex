@@ -1,0 +1,296 @@
+\documentclass[handout,aspectratio=169]{beamer}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usefonttheme{professionalfonts}
+\usepackage[spanish]{babel}
+\usepackage{advdate}
+\usepackage{multicol}
+\setbeamercovered{transparent}
+\usepackage{array} % for "\newcolumntype" macro
+\newcolumntype{C}{>{$\displaystyle}c<{$}}
+\newcommand\myfrac[2]{\frac{#1}{#2\mathstrut}}
+\usepackage{caption}
+
+% Document metadata
+\title{Clase 25}
+\subtitle{Números complejos. Módulo, conjugado y forma polar.}
+\author{Profesor: Denis Osses}
+%\date{\AdvanceDate[+1]\today}
+%\date{\today}
+\date{16 de junio de 2025}
+
+% Image for the title page (use includegraphics option to properly size/place it)
+\titlegraphic{\includegraphics[height=\paperheight]{imagen5}}
+
+\usetheme[sectionstyle=style2]{trigon}
+
+% Define logos to use (comment if no logo)
+\biglogo{logoFIC} % Used on titlepage only
+%\smalllogo{gggg}% Used on top right corner of regular frames
+
+% ------ If you want to change the theme default colors, do it here ------
+%\definecolor{tPrim}{HTML}{00843B}   % Green
+%\definecolor{tSec}{HTML}{289B38}    % Green light
+%\definecolor{tAccent}{HTML}{F07F3C} % Orange
+
+
+% ------ Packages and definitions used for this demo. Can be removed ------
+\usepackage{appendixnumberbeamer} % To use \appendix command
+\pdfstringdefDisableCommands{% Fix hyperref translate warning with \appendix
+\def\translate#1{#1}%
+}
+\usepackage{pgf-pie} % For pie charts
+\usepackage{caption} % For subfigures
+\usepackage{subcaption} % For subfigures
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{Álgebra}}\xspace}
+\usepackage[scale=2]{ccicons} % Icons for CC-BY-SA
+\usepackage{booktabs} % Better tables
+
+
+%==============================================================================
+%                               BEGIN DOCUMENT
+%==============================================================================
+\begin{document}
+
+%--------------------------------------
+% Create title frame
+\titleframe
+
+%--------------------------------------
+% Table of contents
+\begin{frame}{Temario}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+%==============================================
+\section{Objetivos de hoy}
+%==============================================
+%\subsection{Charts}
+\begin{frame}{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+
+\begin{itemize}[<+->]
+\justifying
+    \item Utilizar las distintas representaciones de los números complejos y sus operaciones.
+\end{itemize}
+
+\end{frame}
+
+%==============================================
+\section{Contenidos}
+%==============================================
+
+%---------------------------------------------------------------------
+\subsection{Números complejos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{1cm}
+Algunas ecuaciones cuadráticas no tienen
+solución real. Por ejemplo $x^2+1=0$ no tiene raíces reales porque no existe $x\in\mathbb{R}$ tal que $x^2=-1$.\pause
+
+\vspace{0.2cm}
+
+Para resolver todas las ecuaciones cuadráticas, se crea un sistema numérico expandido llamado conjunto de \textbf{números complejos} $\mathbb{C}$, en el cual se define el número \textbf{imaginario} $i$ con la propiedad que $$i^2=-1~~\Leftrightarrow~~i=\sqrt{-1}.$$
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-0.5cm}
+\begin{block}{Definición}
+\justifying
+Un \textbf{número complejo} es una expresión de la forma $$z=a+bi$$\pause
+donde $a$ y $b$ son números reales y $i^2=-1$. La \textbf{parte real} de este número complejo es $a$ y la \textbf{parte imaginaria} es $b$. \pause 
+Dos números complejos son iguales si y solo si sus partes reales son iguales y sus partes imaginarias son iguales. \pause
+
+\vspace{0.2cm}
+El número complejo $a+bi$ también puede estar representado por el par ordenado $(a,b)$ y determinado como un punto en un plano (llamado plano de Argand) como en la figura siguiente. \pause De este modo, el número complejo $i=0+1\cdot i$ se identifica con el punto $(0,1)$.
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Álgebra y operaciones de números complejos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+    \includegraphics[scale=0.6]{Complejo1}
+\end{center}\pause
+
+\begin{block}{Definición}
+\justifying
+La parte real del complejo $z=a+bi$ se anota como $Re(z)=a$ y la parte imaginaria como $Im(z)=b$. \pause Note que $Re(z), Im(z)\in\mathbb{R}$. \pause A partir de esto, el eje horizontal del plano de Argand se denomina \textbf{eje real} y el eje vertical se llama \textbf{eje imaginario}.
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-3.5cm}
+\begin{block}{Definición}
+\justifying
+Si $z=a+bi$ y $w=c+di$ entonces \pause
+
+\begin{enumerate}[<+->][{(1)}]
+\justifying
+    \item su \textbf{adición} está dada por: $z+w=(a+c)+(b+d)i$.
+    \item su \textbf{resta} está dada por: $z-w=(a-c)+(b-d)i$.
+    \item su \textbf{producto} está dado por: $zw=(ac-bd)+(bc+ad)i$.
+    \item su \textbf{división} está dada por: $\dfrac{z}{w}=\dfrac{(ac+bd)+(bc-ad)i}{c^2+d^2}$.
+    \item el \textbf{módulo} de $z$ está dado por: $|z|=\sqrt{a^2+b^2}$.
+    \item el \textbf{conjugado} de $z$ está dado por: $\overline{z}=a-bi$.
+\end{enumerate}
+\end{block}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+%\subsection{Álgebra y operaciones de números complejos}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\hspace{0.7cm}\begin{minipage}{0.4\textwidth}
+\includegraphics[scale=0.4]{Complejo2}
+% \captionof{figure}{Conjugación}
+\end{minipage}
+\hspace{0.3cm}\begin{minipage}{0.3\textwidth}
+\includegraphics[scale=0.35]{Complejo3}
+% \captionof{figure}{Módulo}
+\end{minipage}\pause
+
+\begin{block}{Propiedades}
+\justifying
+Si $z=a+bi$ y $w=c+di$ entonces \pause
+\begin{multicols}{2}
+\begin{enumerate}[<+->][{(a)}]
+\justifying
+    \item $z\overline{z}=|z|^2$
+    \item $\dfrac{z}{w}=\dfrac{z\overline{w}}{|w|^2}$
+    \item $\overline{z+w}=\overline{z}+\overline{w}$
+    \item $\overline{zw}=\overline{z}\;\overline{w}$
+    \item $z+\overline{z}=2Re(z)$
+    \item $z-\overline{z}=2iIm(z)$
+\end{enumerate}
+\end{multicols}
+\end{block}
+\end{minipage}\pause
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-1.5cm}
+\begin{exampleblock}{Ejemplo 1}
+\justifying
+Dados los números complejos $z_1=\frac{1}{4}+\frac{2}{3}i$ y $z_1=\frac{1}{8}+\frac{1}{6}i$, calcule
+\begin{multicols}{2}
+\begin{enumerate}[{(1)}]
+\item $z_1+z_2$
+\item $|z_1-z_2|$
+\item $z_1:z_2$
+\item $\bar{z_1}\cdot z_2$
+\end{enumerate}
+\end{multicols}
+\end{exampleblock}\pause 
+
+\begin{exampleblock}{Ejemplo 2}
+\justifying
+Determine la parte real e imaginaria de los siguientes números complejos
+\begin{multicols}{3}
+\begin{enumerate}
+%\item $\dfrac{1}{2+i}$
+\item $\dfrac{3+2i}{3-2i}$
+\item $(1+i)^4$
+\item $\dfrac{8}{(1-i)^5}$
+\end{enumerate}
+\end{multicols}
+\end{exampleblock}
+\end{minipage}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+\subsection{Forma polar}
+\begin{frame}
+  \frametitle{\insertsectionhead}
+  \framesubtitle{\insertsubsectionhead}
+  
+\justifying
+\footnotesize
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+    \includegraphics[scale=0.6]{Complejo4}
+\end{center}\pause 
+\begin{block}{Definición}
+\justifying
+Si $z=a+bi$, entonces su \textbf{forma polar} es $$z=r(\cos(\theta)+i\sen(\theta))$$ \pause donde $r=|z|=\sqrt{a^2+b^2}$ y $\tan(\theta)=\frac{b}{a}$. \pause El ángulo $\theta$ se llama \textbf{argumento} de $z$ y escribimos $\theta=\arg(z)$. \pause Note que $\arg(z)$ no es único.
+\end{block}
+\end{minipage}
+\hspace{0.5cm}\begin{minipage}[t]{0.5\linewidth}
+\vspace{-1cm}
+\begin{exampleblock}{Ejemplo 3}
+\justifying
+Calcule el m\'odulo y el argumento de los n\'umeros $\dfrac{1+i}{1-i}$ y $\dfrac{\sqrt{2}}{1-i}$.
+\end{exampleblock}\pause
+\begin{exampleblock}{\color{red}Ejercicio Propuesto}
+\justifying
+\vspace{0.2cm}
+Escriba en forma polar el n\'umero complejo $\dfrac{i^5-i^{-4}}{-\sqrt{2}i}$
+\end{exampleblock}
+
+\end{minipage}
+
+\end{frame}
+
+% %==============================================
+% \section{Conclusión}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \begin{itemize}[<+->]
+%   \justifying
+%       \item Los números complejos son una extensión de los números reales, pero no poseen orden: no podemos decir si un complejo es positivo o negativo. 
+%   \end{itemize}
+
+% \end{frame}
+
+
+% %==============================================
+% \section{Asistencia}
+% %==============================================
+
+% \begin{frame}
+%   \frametitle{\insertsectionhead}
+%   \framesubtitle{\insertsubsectionhead}
+  
+%   \justifying
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   \begin{center}
+%   \includegraphics[scale=0.23]{QR}
+%   \end{center}
+  
+% \end{frame}
+
+
+\end{document}

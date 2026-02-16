@@ -1,0 +1,990 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Temario &#8212; Álgebra</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Unidad4/Clase30';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Temario" href="Clase26.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/FIC-UAI.png" class="logo__image only-light" alt="Álgebra - Home"/>
+    <script>document.write(`<img src="../_static/FIC-UAI.png" class="logo__image only-dark" alt="Álgebra - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Unidad 1: Lenguaje matemático</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase01.html">Temario</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase02.html">Temario</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase03.html">Temario</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase04.html">Temario</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase05.html">Temario</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase06.html">Temario</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase07-08.html">Temario</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase09.html">Temario</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase09-10.html">Temario</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase10.html">Temario</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad1/Clase11.html">Temario</a></li>
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Unidad 2: Trigonometría</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Unidad2/Clase12.html">Temario</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad2/Clase13.html">Temario</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad2/Clase14.html">Temario</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad2/Clase15.html">Temario</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad2/Clase16.html">Temario</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Unidad 3: Geometría analítica y vectorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase17.html">Temario</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase18.html">Temario</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase19.html">Temario</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase20.html">Temario</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase21.html">Temario</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase21-2.html">Temario</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase22.html">Temario</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase23.html">Temario</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Unidad3/Clase24.html">Temario</a></li>
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Unidad 4: Números complejos y polinomios</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Clase25.html">Temario</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Clase26.html">Temario</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Temario</a></li>
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DenisOsses/Algebra" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DenisOsses/Algebra/issues/new?title=Issue%20on%20page%20%2FUnidad4/Clase30.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Unidad4/Clase30.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Temario</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Temario</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-hoy">Objetivos de hoy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#insertsectionhead">\insertsectionhead</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertsubsectionhead">\insertsubsectionhead</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos">Contenidos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polinomios">Polinomios</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#untitled-slide">(Untitled Slide)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">\insertsectionhead</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">\insertsubsectionhead</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-del-resto">Teorema del Resto</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">(Untitled Slide)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">\insertsectionhead</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">\insertsubsectionhead</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-sintetica">División Sintética</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">(Untitled Slide)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">\insertsectionhead</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">\insertsubsectionhead</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p>\titleframe</p>
+<section class="tex2jax_ignore mathjax_ignore" id="temario">
+<h1>Temario<a class="headerlink" href="#temario" title="Link to this heading">#</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Presentación de la Clase</p>
+<p>Para generar el video, ejecute: <code class="docutils literal notranslate"><span class="pre">manim</span> <span class="pre">-pql</span> <span class="pre">slides/Clase30.py</span> <span class="pre">Clase30</span></code> y mueva el archivo resultante a <code class="docutils literal notranslate"><span class="pre">_static/videos/Clase30.mp4</span></code>.</p>
+</div>
+<div class="video-container" style="text-align: center; margin-bottom: 2em;">
+  <video width="80%" controls>
+    <source src="../_static/videos/Clase30.mp4" type="video/mp4">
+    Tu navegador no soporta el elemento video.
+  </video>
+</div>
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="objetivos-de-hoy">
+<h1>Objetivos de hoy<a class="headerlink" href="#objetivos-de-hoy" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="insertsectionhead">
+<h1>\insertsectionhead<a class="headerlink" href="#insertsectionhead" title="Link to this heading">#</a></h1>
+<section id="insertsubsectionhead">
+<h2>\insertsubsectionhead<a class="headerlink" href="#insertsubsectionhead" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Definir polinomios junto a sus elementos y operaciones principales.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contenidos">
+<h1>Contenidos<a class="headerlink" href="#contenidos" title="Link to this heading">#</a></h1>
+<section id="polinomios">
+<h2>Polinomios<a class="headerlink" href="#polinomios" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="untitled-slide">
+<h1>(Untitled Slide)<a class="headerlink" href="#untitled-slide" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>\insertsectionhead<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>\insertsubsectionhead<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>\begin{minipage}[t]{0.5\linewidth}</p>
+<div class="tip admonition">
+<p class="admonition-title">Definición</p>
+<p>Un polinomio <span class="math notranslate nohighlight">\(f\)</span> es una expresión (función) de la forma $<span class="math notranslate nohighlight">\(f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots a_2x^2+a_1x+a_0~~,~~x\in\mathbb{R}\)</span><span class="math notranslate nohighlight">\( donde los \)</span>a_i\in\mathbb{R}<span class="math notranslate nohighlight">\( se denominan \textbf{coeficientes} del polinomio y \)</span>n\in\mathbb{N}$ es su \textbf{grado} u \textbf{orden}.</p>
+</div>
+<p>:class: note</p>
+<div class="tip admonition">
+<p class="admonition-title">Definición</p>
+<p>Un polinomio <span class="math notranslate nohighlight">\(f\)</span> es \textbf{divisible} por el polinomio <span class="math notranslate nohighlight">\(p\)</span> si existe otro polinomio <span class="math notranslate nohighlight">\(q\)</span> tal que $<span class="math notranslate nohighlight">\(f(x)=p(x)q(x).\)</span>$</p>
+</div>
+<div class="toggle docutils container">
+<p><em>(Espacio para la solución detallada)</em></p>
+</div>
+<p>\begin{minipage}[t]{0.5\linewidth}</p>
+<div class="note admonition">
+<p class="admonition-title">Ejemplo</p>
+<p><span class="math notranslate nohighlight">\(x^4-16\)</span> es divisible por <span class="math notranslate nohighlight">\(x^2-4\)</span>, <span class="math notranslate nohighlight">\(x^2+4\)</span>, <span class="math notranslate nohighlight">\((x-2)\)</span> y <span class="math notranslate nohighlight">\(x+2\)</span>, pero no es divisible por <span class="math notranslate nohighlight">\(x^2+3x+1.\)</span></p>
+</div>
+<div class="toggle docutils container">
+<p><em>(Espacio para la solución detallada)</em></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">División de polinomios</p>
+<p>Si <span class="math notranslate nohighlight">\(f(x)\)</span> y <span class="math notranslate nohighlight">\(p(x)\)</span> son polinomios y si <span class="math notranslate nohighlight">\(p(x)\neq0\)</span>, entonces existen polinomios únicos <span class="math notranslate nohighlight">\(q(x)\)</span> y <span class="math notranslate nohighlight">\(r(x)\)</span> tales que $<span class="math notranslate nohighlight">\(f(x)=p(x)q(x)+r(x)\)</span><span class="math notranslate nohighlight">\(
+donde ya sea \)</span>r(x)=0<span class="math notranslate nohighlight">\( o el grado de \)</span>r(x)<span class="math notranslate nohighlight">\( es menor que el grado de \)</span>p(x)<span class="math notranslate nohighlight">\(. El polinomio \)</span>q(x)<span class="math notranslate nohighlight">\( es el \textbf{cociente} y \)</span>r(x)<span class="math notranslate nohighlight">\( es el \textbf{residuo} en la división de \)</span>f(x)<span class="math notranslate nohighlight">\( entre \)</span>p(x)$.</p>
+</div>
+</section>
+</section>
+<section id="teorema-del-resto">
+<h2>Teorema del Resto<a class="headerlink" href="#teorema-del-resto" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>(Untitled Slide)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+<section id="id4">
+<h2>\insertsectionhead<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>\insertsubsectionhead<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>\begin{minipage}[t]{0.5\linewidth}</p>
+<div class="note admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Realice la división de <span class="math notranslate nohighlight">\(x^4-16\)</span> entre <span class="math notranslate nohighlight">\(x^2+3x+1.\)</span></p>
+</div>
+<div class="toggle docutils container">
+<p><em>(Espacio para la solución detallada)</em></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Teorema del Resto</p>
+<p>Si un polinomio <span class="math notranslate nohighlight">\(f(x)\)</span> se divide entre <span class="math notranslate nohighlight">\(x-c\)</span>, entonces el residuo (resto) es <span class="math notranslate nohighlight">\(f(c)\)</span></p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Teorema del Factor</p>
+<p>Un polinomio <span class="math notranslate nohighlight">\(f(x)\)</span> tiene un factor <span class="math notranslate nohighlight">\(x-c\)</span> si y sólo si <span class="math notranslate nohighlight">\(f(c)=0\)</span>.</p>
+</div>
+<p>\begin{minipage}[t]{0.5\linewidth}</p>
+<div class="note admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Demuestre que <span class="math notranslate nohighlight">\(x-2\)</span> es un factor del polinomio <span class="math notranslate nohighlight">\(~~~~f(x)=x^3-4x^2+3x+2\)</span>.</p>
+</div>
+<div class="toggle docutils container">
+<p><em>(Espacio para la solución detallada)</em></p>
+</div>
+<p>Para aplicar el teorema del resto es necesario dividir un polinomio <span class="math notranslate nohighlight">\(f(x)\)</span> entre <span class="math notranslate nohighlight">\(x-c\)</span>. El método de \textbf{división sintética} se puede usar para simplificar este
+trabajo.</p>
+<div class="note admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Use división sintética para hallar el cociente <span class="math notranslate nohighlight">\(q(x)\)</span> y residuo <span class="math notranslate nohighlight">\(r\)</span> si el polinomio <span class="math notranslate nohighlight">\(2x^4+5x^3-2x-8\)</span> se divide entre <span class="math notranslate nohighlight">\(x+3\)</span>.</p>
+</div>
+<div class="toggle docutils container">
+<p><em>(Espacio para la solución detallada)</em></p>
+</div>
+</section>
+</section>
+<section id="division-sintetica">
+<h2>División Sintética<a class="headerlink" href="#division-sintetica" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id6">
+<h1>(Untitled Slide)<a class="headerlink" href="#id6" title="Link to this heading">#</a></h1>
+<section id="id7">
+<h2>\insertsectionhead<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>\insertsubsectionhead<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>\begin{minipage}[t]{0.5\linewidth}</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{image} ../Clases/sintetica.png
+</pre></div>
+</div>
+<p>:align: center
+:width: 70%</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+ 
+\begin{minipage}[t]{0.5\linewidth}
+
+Los teoremas del factor y el resto se pueden extender al conjunto de números complejos. Así, un número complejo $c=a+bi$ es un cero de un polinomio $f(x)$ si y sólo si $x-c$ es un factor de $f(x)$. Excepto en casos especiales,
+los ceros de polinomios son muy difíciles de hallar. El siguiente teorema expresa que hay al menos un cero $c$ y, en consecuencia, por el teorema del factor, $f(x)$ tiene un factor de la forma $x-c$.
+
+
+
+
+%---------------------------------------------------------------------
+## Teorema Fundamental del Álgebra
+# (Untitled Slide)
+  ## \insertsectionhead
+  ### \insertsubsectionhead
+  
+
+
+
+\begin{minipage}[t]{0.5\linewidth}
+:::{admonition} Teorema Fundamental del Álgebra
+:class: tip
+
+    Si un polinomio $f(x)$ tiene un grado positivo y coeficientes complejos, entonces $f(x)$ tiene al menos un cero complejo.
+::: 
+\begin{block}{Factorización
+completa para polinomios}
+
+Si $f(x)$ es un polinomio de grado $n&gt;0$, entonces existen $n$ números complejos $c_1,c_2,\ldots,c_n$ tales que $$f(x)=a(x-c_1)(x-c_2)\cdots(x-c_n)$$
+donde $a$ es el coeficiente principal de $f(x)$. Cada número $c_k$ es un cero de $f(x).$
+:::
+ 
+\begin{minipage}[t]{0.5\linewidth}
+:::{admonition} Ejemplo
+:class: note
+     Factorice completamente el polinomio $$p(x)=5x^3-30x^2+65x$$
+:::
+
+:::{toggle} Solución
+*(Espacio para la solución detallada)*
+:::
+
+
+:::{admonition} Teorema
+:class: tip
+    
+    Todo polinomio con coeficientes reales y $n$ de grado positivo se pueden expresar como un producto de polinomios lineales y cuadráticos con coeficientes reales tales que los factores cuadráticos son irreducibles sobre $\mathbb{R}$.
+:::
+
+
+
+
+
+
+% %==============================================
+% # Conclusión
+% %==============================================
+
+% # (Untitled Slide)
+%   ## \insertsectionhead
+%   ### \insertsubsectionhead
+  
+%   
+  
+%   
+%   
+%       \item Desde el punto de vista polar, la multiplicación de complejos se puede interpretrar como rotaciones.
+%   
+
+% 
+
+
+% %==============================================
+% # Asistencia
+% %==============================================
+
+% # (Untitled Slide)
+%   ## \insertsectionhead
+%   ### \insertsubsectionhead
+  
+%   
+  
+%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
+  
+%   
+%   ```{image} ../Clases/QR
+:align: center
+:width: 70%
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Unidad4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Clase26.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Temario</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Temario</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-hoy">Objetivos de hoy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#insertsectionhead">\insertsectionhead</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insertsubsectionhead">\insertsubsectionhead</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos">Contenidos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polinomios">Polinomios</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#untitled-slide">(Untitled Slide)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">\insertsectionhead</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">\insertsubsectionhead</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-del-resto">Teorema del Resto</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">(Untitled Slide)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">\insertsectionhead</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">\insertsubsectionhead</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-sintetica">División Sintética</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">(Untitled Slide)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">\insertsectionhead</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">\insertsubsectionhead</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Denis Osses
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

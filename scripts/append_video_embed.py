@@ -44,10 +44,10 @@ def main():
                 
 
                 embed_code = (
-                    f"\n:::" + "{admonition} Presentación de la Clase\n"
+                    f"\n```" + "{admonition} Presentación de la Clase\n"
                     f":class: note\n"
                     f"Para generar el video, ejecute: `manim -pql slides/Clase{num}.py Clase{num}` y mueva el archivo resultante a `_static/videos/Clase{num}.mp4`.\n"
-                    f":::\n\n"
+                    f"```\n\n"
                     f'<div class="video-container" style="text-align: center; margin-bottom: 2em;">\n'
                     f'  <video width="80%" controls>\n'
                     f'    <source src="../_static/videos/Clase{num}.mp4" type="video/mp4">\n'

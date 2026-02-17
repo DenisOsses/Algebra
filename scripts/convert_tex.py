@@ -18,7 +18,34 @@ def clean_tex_line(line):
     line = re.sub(r'\\small', '', line)
     line = re.sub(r'\\vspace\{.*?\}', '', line)
     line = re.sub(r'\\hspace\{.*?\}', '', line)
+    line = re.sub(r'\\titleframe', '', line)
+    line = re.sub(r'\\insertsectionhead', '', line)
+    line = re.sub(r'\\insertsubsectionhead', '', line)
+    line = re.sub(r'\\begin\{minipage\}.*', '', line)
+    line = re.sub(r'\\end\{minipage\}', '', line)
+    line = re.sub(r'\\linewidth', '', line)
+    line = re.sub(r'\\textbf\{(.*?)\}', r'**\1**', line)  # Convert bold
+    line = re.sub(r'\\textit\{(.*?)\}', r'*\1*', line)    # Convert italic
+    line = re.sub(r'%.*', '', line)  # Remove comments
     return line
+
+def remove_ignored_frames(content):
+    # Remove frames with specific titles
+    # Titles: Temario, Objetivos, Objetivos de hoy, Contenidos
+    ignore_patterns = [
+        r'\\begin\{frame\}\{Temario\}.*?\\end\{frame\}',
+        r'\\begin\{frame\}\{Objetivos.*?\}', # Open match, looking for closing?
+        # Better: match the whole block with regex
+    ]
+    
+    # Regex for frame with title
+    # Note: .*? is non-greedy. flags=re.DOTALL needed.
+    content = re.sub(r'\\begin\{frame\}\{(Temario|Objetivos|Objetivos de hoy|Contenidos|Tabla de contenidos)\}.*?\\end\{frame\}', '', content, flags=re.DOTALL)
+    
+    # Also remove separate \section{...} if they are just headers for these
+    content = re.sub(r'\\section\{(Temario|Objetivos|Objetivos de hoy|Contenidos)\}', '', content)
+    
+    return content
 
 def remove_preamble(content):
     if "\\begin{document}" in content:
@@ -51,33 +78,33 @@ def remove_layout_commands(content):
     return content
 
 def convert_admonitions(content):
-    # Convert blocks
-    # \begin{block}{Title} -> :::{admonition} Title \n :class: tip
+    # Convert blocks to ```{admonition} style
+    # \begin{block}{Title} -> ```{admonition} Title
     
     # Generic block to tip/note
     content = re.sub(
         r'\\begin\{block\}\{(.*?)\}',
-        r':::{admonition} \1\n:class: tip',
+        r'```{admonition} \1\n:class: tip',
         content
     )
     
     # Alert block to warning
     content = re.sub(
         r'\\begin\{alertblock\}\{(.*?)\}',
-        r':::{admonition} \1\n:class: warning',
+        r'```{admonition} \1\n:class: warning',
         content
     )
     
     # Example block to note
     content = re.sub(
         r'\\begin\{exampleblock\}\{(.*?)\}',
-        r':::{admonition} \1\n:class: note',
+        r'```{admonition} \1\n:class: note',
         content
     )
     
-    # Definition/Theorem specific handling if needed, but the Titles usually have it
-    # We also need to handle the closing tags
-    content = re.sub(r'\\end\{(block|alertblock|exampleblock)\}', ':::', content)
+    # Closing tags
+    # We need to replace \end{block} etc with ```
+    content = re.sub(r'\\end\{(block|alertblock|exampleblock)\}', '```', content)
     
     return content
 
@@ -123,24 +150,20 @@ def convert_images(content):
     return content
 
 def add_solution_toggles(content):
-    # Heuristic: After every Example block, add a toggle for solution
-    # This is tricky because we don't have the solutions in the source usually.
-    # We will add a placeholder structure.
-    
     lines = content.split('\n')
     new_lines = []
     in_example = False
     
     for line in lines:
         new_lines.append(line)
-        if ":::{admonition} Ejemplo" in line or ":::{admonition} Ejercicio" in line:
+        if "```{admonition} Ejemplo" in line or "```{admonition} Ejercicio" in line:
             in_example = True
         
-        if line.strip() == ":::" and in_example:
+        if line.strip() == "```" and in_example:
             in_example = False
-            new_lines.append("\n:::{toggle} Solución")
+            new_lines.append("\n```{toggle} Solución")
             new_lines.append("*(Espacio para la solución detallada)*")
-            new_lines.append(":::\n")
+            new_lines.append("```\n")
             
     return '\n'.join(new_lines)
 
@@ -148,19 +171,24 @@ def process_file(filename, unit_path):
     with open(os.path.join(SOURCE_DIR, filename), 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Pre-cleaning
+    # Conversions
+    content = remove_preamble(content)
+    content = remove_ignored_frames(content) # Filter before cleaning lines ideally
+    
+    # Pre-cleaning lines
     lines = content.split('\n')
     cleaned_lines = [clean_tex_line(l) for l in lines]
     content = '\n'.join(cleaned_lines)
-    
-    # Conversions
-    content = remove_preamble(content)
+
     content = convert_structure(content)
     content = convert_admonitions(content)
     content = remove_layout_commands(content)
     content = convert_lists(content)
     content = convert_images(content)
     content = add_solution_toggles(content)
+    
+    # Final cleanup of double blank lines
+    content = re.sub(r'\n{3,}', '\n\n', content)
     
     # Final write
     output_filename = os.path.splitext(filename)[0].replace(' ', '') + ".md"

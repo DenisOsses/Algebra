@@ -1,17 +1,17 @@
 
 
-%--------------------------------------
-% Create title frame
-\titleframe
+# 
+  ### 
+- Definir las sumatorias dobles y calcular algunas de ellas.
+- Calcular productos aplicando sus propiedades.
 
-%--------------------------------------
-% Table of contents
-# Temario
+## Sumatorias Dobles
+# (Untitled Slide)
 
-:::{admonition} Presentación de la Clase
+```{admonition} Presentación de la Clase
 :class: note
 Para generar el video, ejecute: `manim -pql slides/Clase10.py Clase10` y mueva el archivo resultante a `_static/videos/Clase10.mp4`.
-:::
+```
 
 <div class="video-container" style="text-align: center; margin-bottom: 2em;">
   <video width="80%" controls>
@@ -19,45 +19,15 @@ Para generar el video, ejecute: `manim -pql slides/Clase10.py Clase10` y mueva e
     Tu navegador no soporta el elemento video.
   </video>
 </div>
-  \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents%[hideallsubsections]
-
-
-%==============================================
-# Objetivos de hoy
-%==============================================
-%## Charts
-# \insertsectionhead
-  ### \insertsubsectionhead
-- Definir las sumatorias dobles y calcular algunas de ellas.
-- Calcular productos aplicando sus propiedades.
-
-
-
-
-%==============================================
-# Contenidos
-%==============================================
-
-%-------------------------------------------------------------------------
-## Sumatorias Dobles
-# (Untitled Slide)
-  ## \insertsectionhead
- ### \insertsubsectionhead
+  ## 
+ ### 
   
   
 
-\begin{minipage}[t]{0.5\linewidth}
-
-%
-
-
-:::{admonition} Ejemplo
+```{admonition} Ejemplo
 :class: note
     
     Considere el siguiente arreglo rectangular de números:  
-
-
 
 $\begin{array}{cccccccc}
 3 & 4 & 5& 6 & 7 & \cdots & 101 & 102\\
@@ -72,22 +42,13 @@ $
 - Escriba la suma de todos los n\'umeros de la cuarta fila del arreglo rectangular  anterior utilizando el s\'imbolo de sumatoria y calcule esta suma.
 - Escriba la suma de todos los n\'umeros que aparecen en el arreglo anterior usando sumatorias y calcule dicha suma.
 
+```
 
-
-:::
-
-:::{toggle} Solución
+```{toggle} Solución
 *(Espacio para la solución detallada)*
-:::
+```
 
-
-
-
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Definición
+```{admonition} Definición
 :class: tip
     
     Considere la sucesión $\{F(i)\}_{i\in\mathbb{N}}$. Sabemos que 
@@ -99,34 +60,22 @@ $
      
     Entonces 
     
-    $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{g(i)}f(i,j)=\sum_{i=1}^m F(i) $$ corresponde a la \textbf{suma doble} de los términos $f(i,j)$.  
-:::
+    $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{g(i)}f(i,j)=\sum_{i=1}^m F(i) $$ corresponde a la **suma doble** de los términos $f(i,j)$.  
+```
 
-\textbf{Nota}: Estudiaremos los siguientes casos más simples: cuando $g(i)=n$ (constante) y $g(i)=i
+**Nota**: Estudiaremos los siguientes casos más simples: cuando $g(i)=n$ (constante) y $g(i)=i
 $.
 
-
-
-
-
-
-%-------------------------------------------------------------------------
-%## Sumatorias Dobles
 # (Untitled Slide)
-  ## \insertsectionhead
- ### \insertsubsectionhead
+  ## 
+ ### 
   
   
 
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Suma Rectangular
+```{admonition} Suma Rectangular
 :class: tip
     
     \underline{Si $g(i)=n$}: En este caso tenemos la sumatoria doble $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{n}f(i,j)$$  y podemos interpretarla como la suma de los términos de un arreglo rectangular de $m$ filas y $n$ columnas:  
-
 
 $\begin{array}{ccccc}
 f(1,1) & f(1,2) & f(1,3)&  \cdots & f(1,n) \\
@@ -137,19 +86,12 @@ f(m,1) & f(m,2) & f(m,3)&  \cdots & f(m,n)
 
 donde $f(i,j)$ corresponde al término en la fila $i$ y columna $j$ ($i=1,2,\ldots,m$ y $j=1,2,\ldots,n$).
 
-:::
+```
 
-
-
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Suma Triangular
+```{admonition} Suma Triangular
 :class: tip
     
 \underline{Si $g(i)=i$}: En este caso tenemos la sumatoria doble $$\displaystyle\sum_{i=1}^m \sum_{j=1}^{i}f(i,j)$$  y podemos interpretarla como la suma de los términos de un arreglo triangular de $m$ filas y $m$ columnas:  
-
 
 $\begin{array}{ccccc}
 f(1,1) &  & &   &  \\
@@ -158,31 +100,18 @@ f(2,1) & f(2,2) & &   &\\
 f(m,1) & f(m,2) & f(m,3)&  \cdots & f(m,m)
 \end{array}$
 
+```
 
-:::
-
-
-
-
-
-
-%-------------------------------------------------------------------------
-%## Sumatorias Dobles
 # (Untitled Slide)
-  ## \insertsectionhead
- ### \insertsubsectionhead
+  ## 
+ ### 
   
   
 
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Ejemplo
+```{admonition} Ejemplo
 :class: note
     
     Usando sumas dobles exprese y calcule la suma de todos los números del siguiente arreglo triangular:
-
 
 $\begin{array}{cccccccc}
 1 &  & & &  &  &  & \\
@@ -195,24 +124,16 @@ $\begin{array}{cccccccc}
 \end{array}
 $
 
-:::
+```
 
-:::{toggle} Solución
+```{toggle} Solución
 *(Espacio para la solución detallada)*
-:::
+```
 
-
-
-
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} \color{red
+```{admonition} \color{red
 :class: note{Propuesto}}
 
 Considere el siguiente arreglo cuadrado
-
 
 $\begin{array}{ccccc}
 a_{11} & a_{12} & a_{13 }&  \cdots & a_{1n} \\
@@ -222,175 +143,93 @@ a_{n1} & a_{n2}  & a_{n3} &  \cdots & a_{nn}
 \end{array}
 $
 
-
 Diremos que $a_{ij}$ está en el triángulo superior del arreglo si y solo si $i<j$. Análogamente, diremos que $a_{ij}$ está en el triángulo inferior del arreglo si y solo si $i>j$. 
 - Usando sumas dobles exprese la suma de todos los términos del arreglo cuadrado que están en el triángulo superior del arreglo.
 - Usando sumas dobles exprese la suma de todos los términos del arreglo cuadrado que están en el triángulo inferior del arreglo.
  
 
-:::
+```
 
-
-
-
-
-%-------------------------------------------------------------------------
 ## Productorias
 # (Untitled Slide)
-  ## \insertsectionhead
- ### \insertsubsectionhead
+  ## 
+ ### 
   
   
 
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Definición
+```{admonition} Definición
 :class: tip
 
-Considere la sucesión $\{f(k)\}_{k\in\mathbb{N}}=\{a_k\}_{k\in\mathbb{N}}$. El producto de los $n$ primeros términos de esta sucesión se denomina \textbf{productoria} de tales términos.  Anotamos $$\prod_{k=1}^n a_k=a_1\cdot a_2\cdots a_n.$$  Notamos que $$\prod_{k=1}^1 a_k=a_1  ~~,~~\prod_{k=1}^{n+1} a_k=\left(\prod_{k=1}^{n}a_k\right)\cdot a_{n+1}.$$ 
+Considere la sucesión $\{f(k)\}_{k\in\mathbb{N}}=\{a_k\}_{k\in\mathbb{N}}$. El producto de los $n$ primeros términos de esta sucesión se denomina **productoria** de tales términos.  Anotamos $$\prod_{k=1}^n a_k=a_1\cdot a_2\cdots a_n.$$  Notamos que $$\prod_{k=1}^1 a_k=a_1  ~~,~~\prod_{k=1}^{n+1} a_k=\left(\prod_{k=1}^{n}a_k\right)\cdot a_{n+1}.$$ 
 
-:::
+```
 
-
-
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Propiedades
+```{admonition} Propiedades
 :class: tip
 Si $\{a_{k}\}_{k\in\mathbb{N}}$ y $\{b_{k}\}_{k\in\mathbb{N}}$ son dos sucesiones reales, entonces: 
-- \textbf{Productoria del producto}: $\displaystyle\prod_{k=1}^{n}(a_{k}\cdot b_{k})=\left(\displaystyle\prod_{k=1}^{n}a_{k}\right)\left(\displaystyle\prod_{k=1}^{n}b_{k}\right)$
-- \textbf{Asociatividad}: $\displaystyle\prod_{k=1}^{n}a_{k}=\left(\displaystyle\prod_{k=1}^{m}a_{k}\right)\displaystyle\left(\prod_{k=m+1}^{n}a_{k}\right)$,~con $1\leq m < n$.
-- \textbf{Factorización}: $\displaystyle\prod_{k=1}^{n}ca_{k}=c^{n}\displaystyle\prod_{k=1}^{n}a_{k}~~$,~con $c\in\mathbb{R}$.
+- **Productoria del producto**: $\displaystyle\prod_{k=1}^{n}(a_{k}\cdot b_{k})=\left(\displaystyle\prod_{k=1}^{n}a_{k}\right)\left(\displaystyle\prod_{k=1}^{n}b_{k}\right)$
+- **Asociatividad**: $\displaystyle\prod_{k=1}^{n}a_{k}=\left(\displaystyle\prod_{k=1}^{m}a_{k}\right)\displaystyle\left(\prod_{k=m+1}^{n}a_{k}\right)$,~con $1\leq m < n$.
+- **Factorización**: $\displaystyle\prod_{k=1}^{n}ca_{k}=c^{n}\displaystyle\prod_{k=1}^{n}a_{k}~~$,~con $c\in\mathbb{R}$.
 
-:::
+```
 
-
-
-
-
-%-------------------------------------------------------------------------
-%## Productorias
 # (Untitled Slide)
-  ## \insertsectionhead
- ### \insertsubsectionhead
+  ## 
+ ### 
   
   
 
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Propiedades
+```{admonition} Propiedades
 :class: tip
 
+    \item[4.] **Cambio de índice**: $\displaystyle\prod_{k=m-l}^{n-l}a_{k+l}=\displaystyle\prod_{k=m}^{n}a_{k}=\displaystyle\prod_{k=m+l}^{n+l}a_{k-l}~~$,  con $l\leq m<n$.
+    \item[5.] **Cancelación**: $ \displaystyle\prod_{k=m}^{n}\frac{a_{k}}{a_{k+1}}=\frac{a_{m}}{a_{n+1}}~~$, con  $1\leq m\leq n$.
 
-    \item[4.] \textbf{Cambio de índice}: $\displaystyle\prod_{k=m-l}^{n-l}a_{k+l}=\displaystyle\prod_{k=m}^{n}a_{k}=\displaystyle\prod_{k=m+l}^{n+l}a_{k-l}~~$,  con $l\leq m<n$.
-    \item[5.] \textbf{Cancelación}: $ \displaystyle\prod_{k=m}^{n}\frac{a_{k}}{a_{k+1}}=\frac{a_{m}}{a_{n+1}}~~$, con  $1\leq m\leq n$.
+``` 
 
-::: 
-
-:::{admonition} Nota
+```{admonition} Nota
 :class: tip
 
-Definimos el \textbf{factorial} de $n$ como: $~~~~n!=1\cdot 2\cdot3\cdots n=\displaystyle\prod_{k=1}^n k~~,~~0!=1$
-:::
+Definimos el **factorial** de $n$ como: $~~~~n!=1\cdot 2\cdot3\cdots n=\displaystyle\prod_{k=1}^n k~~,~~0!=1$
+```
 
-
-
-\begin{minipage}[t]{0.5\linewidth}
-
-
-
-:::{admonition} Ejemplo
+```{admonition} Ejemplo
 :class: note
 
  Calcular $\displaystyle \prod_{k=1}^{n}\frac{3k2^{k}}{5^{2k}(2k+2)}$
-::: 
+``` 
 
-:::{toggle} Solución
+```{toggle} Solución
 *(Espacio para la solución detallada)*
-:::
+```
 
-
-:::{admonition} Ejemplo
+```{admonition} Ejemplo
 :class: note
 
 Calcule $\displaystyle\prod_{k=1}^{n}ka^{b+k}$ en términos de $a,b$ y $n$.
-:::
+```
 
-:::{toggle} Solución
+```{toggle} Solución
 *(Espacio para la solución detallada)*
-:::
+```
 
-
-:::{admonition} \color{red
+```{admonition} \color{red
 :class: note{Propuesto}}
 
 Verifique que  $\displaystyle \prod_{n=1}^{10}\sum_{i=1}^{n}(1+i)=\dfrac{10!\cdot13!}{2^{10}\cdot3!}$
-:::
-
-
-
-
-
-
-
-% %---------------------------------------------------------------------
-% %## Propiedades
-% # (Untitled Slide)
-%   ## \insertsectionhead
-%   ### \insertsubsectionhead
-  
-%   
-
-% :::{admonition} Ejemplo 4
-:class: note
-% 
-%  Calcular $\displaystyle \sum_{i=0}^{100}\prod_{j=0}^i 3\left(\frac{2^j}{2^{j+1}}\right)$
-% :::
-
-% 
-
-% %==============================================
-% # Conclusión
-% %==============================================
-
-% # (Untitled Slide)
-%   ## \insertsectionhead
-%   ### \insertsubsectionhead
-  
-%   
-  
-%   
-%   
-%       \item Las productorias son multiplicaciones de elementos de una sucesión generada por una patrón o fórmula $f(k)=a_k$. Su símbolo $\prod$ es una forma abreviada de escribir dicho producto. No debe confundir con la sumatoria ni sus propiedades.
-%   
-
-% 
-
-% %==============================================
-% # Asistencia
-% %==============================================
-
-% # (Untitled Slide)
-%   ## \insertsectionhead
-%   ### \insertsubsectionhead
-  
-%   
-  
-%   \textbf{Solo se considerará la asistencia hasta 5 minutos después de terminada la clase.}
-  
-%   
-%   ```{image} ../Clases/QR
-:align: center
-:width: 70%
 ```
-%   
-  
-% 
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
